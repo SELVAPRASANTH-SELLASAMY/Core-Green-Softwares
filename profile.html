@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/IT_logo.jpg">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>profile</title>
+</head>
+<body>
+    <div class="frame1">
+    <form>
+    <div id="Main" class="Mainframe">
+        <div class="update_btn" onclick="return updateData()"><button><img src="assets/save_icon.png"></button><p>Save Changes</p></div>
+        <div class="account_settings"><button type="button" id="ac_settings"><img src="assets/settings_icon.png"></button><p><ul>Account Settings
+            <div class="settings">
+                <li class="ChangePasswordRequest">Change password</li>
+                <li class="accountDeletion">Delete Account</li>
+            </div>
+        </ul></p></div>
+        <img id="logo" src="assets/IT_logo.jpg">
+        <div class="profile_section"><h1 id="user">UserName</h1></div>
+        <div id="details0">
+            <div class="a"><p ondblclick="changeId()" id="Id">ID : </p> <p id="uid" class="upd_btn">You can't change user Id</p></div>
+            <div class="a"><p ondblclick="changeFname()" id="fname">First Name : </p> <input id="ufname" class="upd_btn" type="text" placeholder="Click here to Update Firstname"></div>
+            <div class="a"><p ondblclick="changeLname()" id="lname">Last Name : </p><input id="ulname" class="upd_btn" type="text" placeholder="Click here to Update lastname"></div>
+            <div class="a"><p ondblclick="changeAcNum()" id="rno">Account Number : </p><input id="uacnum" class="upd_btn" type="text" placeholder="Click here to Update Account Number"></div>
+            <div class="a"><p ondblclick="changeDob()" id="dob">Date of Birth : </p><input id="uDOB" class="upd_btn" type="date" placeholder="Click here to Update DOB" onfocus="(this.type='date')" onblur="(this.type='text')"></div>
+            <div class="a"><p ondblclick="changeCont()" id="cont">Contact : </p><input id="ucont" class="upd_btn" type="text" placeholder="Click here to Update Contact"></div>
+        </div>
+        <button type="submit" id="btn" onclick="return logout()">LOGOUT</button>
+        <p class="help">DOUBLE CLICK ON ANY FIELD TO UPDATE IT</p>
+    </div>
+    </form>
+    </div>
+    <div class="alertmsg_container"></div>
+    
+    <div class="settingsMsg"></div>
+    <div class="InnerMsg">
+        <h1>Change password</h1>
+        <input id="current-password" type="password" placeholder="Enter your current password">
+        <p id="current_warn">This field couldn't be empty</p>
+        <input id="new-password" type="password" placeholder="New password">
+        <p id="new_warn">This field couldn't be empty</p>
+        <input id="con-password" type="password" placeholder="Confirm new password">
+        <p id="con_warn">This field couldn't be empty</p>
+        <div><button id="ok" onclick="return changePassword()"><img src="assets/ok_icon.png"></button>
+        <button id="cancel"><img src="assets/cancel_icon.png"></button></div>
+    </div>
+
+    <div class="alertMsg1">
+        <h1>Delete account</h1>
+        <input id="current-password1" type="password" placeholder="Enter your password to confirm">
+        <p id="wrong-pass">Invalid password</p>
+        <div><button id="ok" onclick="return DeleteAccount()"><img src="assets/ok_icon.png"></button>
+            <button class="cancelBtn" id="cancel"><img src="assets/cancel_icon.png"></button></div>
+    </div>
+
+    <div class="session">
+        <div class="changes_made">
+            <h3>Session expired!</h3>
+            <p>please log in again</p>
+        </div>
+    </div>
+    <div class="spinner_container">
+        <div class="spinner"></div>
+    </div>
+    <script src="js/profile.js"></script>
+</body>
+</html>

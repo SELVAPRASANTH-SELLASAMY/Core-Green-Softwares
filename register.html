@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="icon" href="assets/IT_logo.jpg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>register</title>
+</head>
+<body>
+    <form id="Mainframe" name="Mainframe" method="post">
+    <div class="right">
+    <img id="logo" src="assets/IT_logo.jpg">
+    <h2 id="log">REGISTER</h2>
+    <div class="innerframe">
+    <p id="success_msg">Account created successfully</p>
+    <input type="text" id="fname" name="fname" placeholder="First name">
+    <p id="warn_fname">This field couldn't be empty</p>
+    <input type="text" id="lname" name="lname" placeholder="Last name">
+    <p id="warn_lname">This field couldn't be empty</p>
+    <input type="text" id="r_no" name="r_no" placeholder="Roll number">
+    <p id="warn_rno">This field couldn't be empty</p>
+    <input type="text" id="dob" name="dob" placeholder="Date of birth" onfocus="(this.type='date')" onblur="(this.type='text')">
+    <p id="warn_dob">This field couldn't be empty</p>
+    <input type="number" id="contact" name="contact" placeholder="Contact number">
+    <p id="warn_cont">This field couldn't be empty</p>
+    <input type="password" id="pass1" name="pass1" placeholder="New password">
+    <p id="warn_pass">This field couldn't be empty</p>
+    </div>
+    <input type="password" id="pass2" name="pass2" placeholder="Confirm password">
+    <p id="warn_conpass">This field couldn't be empty</p>
+    <button id="btn" onclick="return registration()">SUBMIT</button><br>
+    </div>
+    </form>
+    <div class="spinner_container">
+        <div class="spinner"></div>
+    </div>
+    <script src="js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.right{
+    width: 85vmin;
+    height: 98vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vmin;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1.5vmin;
+    border: 0.5vmin white solid;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2) inset, 0 6px 20px 0 rgba(0,0,0,0.19) inset;
+}
+#fname,#lname,#r_no,#dob,#contact,#pass1,#pass2,#btn{
+    width: 40vmin;
+    height: 4.5vmin;
+    margin: 1vmin;
+    border-radius: 1vmin;
+    border: 0.2vmin solid grey;
+    text-align: center;
+    background-color: rgb(240, 247, 255);
+    font-size: 1.75vmin;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+input:focus{
+    outline: 0.2vmin rgb(27, 126, 255) solid;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: 200ms;
+}
+#log{
+    padding-top: 2vmin;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 5vmin;
+    color: rgb(0, 115, 255);
+}
+body{
+    height: 100vmin;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/Office_Building.jpg);
+    backdrop-filter: brightness(45%);
+    background-position: center;
+    background-size: cover;
+}
+#btn{
+    color: white;
+    font-weight:600;
+    font-size: 1.85vmin;
+    background-color: rgb(0, 102, 255);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+}
+#btn:active{
+    background-color: rgb(0, 72, 255);
+}
+#warn_fname,#warn_lname,#warn_rno,#warn_dob,#warn_cont,#warn_pass,#warn_conpass{
+    color: red;
+    visibility: hidden;
+    text-align: center;
+}
+#success_msg{
+    color: rgb(0, 160, 0);
+    text-align: center;
+    visibility: hidden;
+}
+#logo{
+    width: 10vmin;
+    height: 10vmin;
+    border-radius: 50vmin;
+    border: 0.5vmin solid white;
+}
+.spinner{
+    border: 0.5vmin solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 0.5vmin solid #1e90ff;
+    width: 5vmin;
+    height: 5vmin;
+    -webkit-animation: spin 0.75s linear infinite;
+    animation: spin 0.75s linear infinite;
+}
+@-webkit-keyframes spin{
+    0%{-webkit-transform: rotate(0deg);}
+    100%{-webkit-transform: rotate(360deg);}
+}
+@keyframes spin{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.spinner_container{
+    height: 100vh;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.666);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.show-spinner{
+    display: flex;
+}
+@media only screen and (max-width:650px){
+    body{
+        height: 100lvh;
+    }
+}

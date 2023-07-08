@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="assets/IT_logo.jpg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>login</title>
+</head>
+<body>
+    <form id="Mainframe" name="Mainframe">
+    <div class="right">
+    <img id="logo" src="assets/IT_logo.jpg">
+    <h2 id="log">LOGIN</h2>
+    <p id="res_msg">Couldn't reach the servers</p>
+    <input type="number" id="contact" name="contact" placeholder="Enter your mobile number">
+    <p id="cont_warn">This field couldn't be empty</p>
+    <input type="password" id="pass" name="pass" placeholder="Password">
+    <p id="pass_warn">This field couldn't be empty</p>
+    <button type="submit" id="btn" onclick="return validate()">LOGIN</button>
+    </form>
+    <p id="or">or</p>
+    <button type="button" onclick=location.href="register.html" id="btn">REGISTER</button>
+    </div>
+    <div class="spinner_container">
+        <div class="spinner"></div>
+    </div>
+    <script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

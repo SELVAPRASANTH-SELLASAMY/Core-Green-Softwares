@@ -1,0 +1,368 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+body{
+    width: 100%;
+}
+html{
+    scroll-behavior: smooth;
+}
+.home{
+    position: relative;
+    overflow-x: visible;
+}
+.bg_img{
+    width: 100%;
+    height:100vh;
+    background-image: url(../assets/Office_Building.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: brightness(35%);
+}
+.company_name{
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    top: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.company_name h1{
+    font-size: 4vmin;
+}
+.company_name p{
+    font-size: 2.5vmin;
+}
+.mobile_menu{
+    height: 10vmin;
+    width: 5vmin;
+    position: absolute;
+    top: 2vmin;
+    left: 2vmin;
+    display: none;
+}
+.line{
+    height: 1.5px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    margin: 1vmin 0vmin;
+}
+nav{
+    height: fit-content;
+    width: 100%;
+    position: absolute;
+    top: 0vmin;
+    display: inline-flex;
+}
+nav .menu1,nav .menu2,nav .menu3{
+    width: 100%;
+    height: 5vmin;
+    font-size: 1.5vmin;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15vmin;
+}
+nav .menu:hover{
+    background-image: linear-gradient(rgb(0, 130, 0),rgba(0, 110, 0, 0.286));
+}
+nav ul{
+    width: 100%;
+    height: 10vmin;
+}
+.close_menu{
+    display: none;
+}
+.close_menu p{
+    font-size: 6vmin;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    text-align: end;
+    margin: 0vmin 5vmin;
+}
+.menu li{
+    height: 10vmin;
+}
+nav .abt_sub_menu li,nav .theme_sub_menu li,nav .login_sub_menu li{
+    width: 100%;
+    height: 5vmin;
+    font-size: 1.5vmin;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(1, 85, 1);
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+nav .abt_sub_menu li:hover,nav .theme_sub_menu li:hover,nav .login_sub_menu li:hover{
+    background-image: linear-gradient(rgb(0, 130, 0),rgba(0, 110, 0, 0.286));
+}
+.abt_sub_menu,.theme_sub_menu,.login_sub_menu{
+    display: none;
+    width: 100%;
+    border: 1px solid white;
+}
+.display_mobile_menu{
+    left: 0%;
+    transition: 600ms;
+}
+.display_sub_menu{
+    display: block;
+}
+#image_sizing{
+    height: 25vmin;
+    width: 35vmin;
+    background-size: cover;
+    border: 0.1vmin solid white;
+}
+.coding_img{
+    background-image: url(..//assets/coding_img.jpg);
+}
+.who_we_img{
+    background-image: url(..//assets/who-we-are-text.jpeg);
+}
+.emp_img{
+    background-image:url(..//assets/Employees.jpg);
+}
+.embedded_img{
+    background-image: url(../assets/embedded.jpg);
+}
+.content{
+    height: fit-content;
+    width: 60vw;
+    background-color: rgb(228, 255, 228);
+    border-radius: 2vmin;
+    margin: 5.5%;
+    padding: 3.5vmin;
+    font-size: 2vmin;
+    border: 0.1vmin solid white;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.para1{
+    display: inline-flex;
+}
+.basic_inform{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vmin;
+}
+#abt_frame{
+    height: fit-content;
+    width: 90vw;
+    background-color: rgb(198, 255, 198);
+    font-size: 2vmin;
+    padding: 2.5vmin 5vmin;
+    margin: 0.25vmin;
+    border-radius: 2vmin;
+    border: 0.1vmin solid black;
+}
+.heading{
+    text-align: center;
+}
+.abt_com{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ref_img{
+    height: 90vmin;
+    width: 90vmin;
+    background-image: url(..//assets/it_service_delivery_process.png);
+    background-size: cover;
+    border-radius: 5%;
+}
+.work_flow_heading{
+    margin-bottom: 2vmin;
+}
+.work_process{
+    padding: 2.5vmin 5vmin;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vmin;
+}
+#job_name{
+    height: fit-content;
+    width: 100%;
+    background-color: rgb(198, 255, 198);
+    font-size: 2vmin;
+    padding: 2.5vmin 5vmin;
+    border-radius: 2vmin;
+    border: 0.1vmin solid black;
+}
+.role{
+    height: fit-content;
+    width: 43.5vw;
+    background-color: rgb(228, 255, 228);
+    font-size: 2vmin;
+    padding: 2.5vmin 5vmin;
+    margin: 0.25vmin;
+    border-radius: 2vmin;
+    margin-bottom: 1vmin;
+    border: 0.1vmin solid white;
+}
+#careers{
+    display: inline-flex;
+    flex-direction: row;
+}
+.ca1{
+    margin: 2.5vmin 1vw;
+}
+.site_information{
+    height: 35vmin;
+    width: 100%;
+    background-color: rgb(228, 255, 228);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 2vmin;
+}
+.com_name{
+    display: inline-flex;
+    flex-direction: row;
+    margin-bottom: 2vmin;
+}
+.com_name h2{
+    margin-top: 0.5vmin;
+}
+#logo{
+    height: 6vmin;
+    width: 6vmin;
+    border-radius: 50%;
+    margin-right: 1vmin;
+}
+.media-icon-container{
+    width: 25vmin;
+    height: 12.5vmin;
+    overflow: hidden;
+}
+#icon_size{
+    height: 4.5vmin;
+    width: 4.5vmin;
+    border-radius: 50%;
+}
+#icon_size1{
+    height: 4.5vmin;
+    width: 4.5vmin;
+}
+.media-icon-container-1{
+    width: 100%;
+    height: fit-content;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2vmin;
+}
+.container-1{
+    display: inline-flex;
+}
+.cont{
+    padding-right: 2.5%;
+    width: 100vmin;
+}
+.copyright{
+    font-size: 1.75vmin;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    width: 30vmin;
+}
+.copyright_container{
+    font-size: 2.75vmin;
+    margin-right: 2px;
+}
+.developer_info{
+    font-size: 1.5vmin;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 2vmin;
+    bottom: 2vmin;
+}
+
+
+@media only screen and (max-width:768px) {
+    .mobile_menu{
+        display: block;
+        filter: brightness(200%);
+    }
+    nav{
+        width: 50%;
+        left: -100%;
+        display: block;
+        transition: 600ms;
+        background-color:rgb(0, 100, 0);
+    }
+    .company_name{
+        height: 30vh;
+    }
+    .bg_img{
+        height: 30vh;
+    }
+    nav ul{
+        margin: 0 0;
+    }
+    .close_menu{
+        display: block;
+    }
+    nav .abt_sub_menu li,nav .theme_sub_menu li,nav .login_sub_menu li{
+        font-size: 3vmin;
+        height: 10vmin;
+    }
+    nav .menu1,nav .menu2,nav .menu3{
+        font-size: 3vmin;
+        height: 10vmin;
+    }
+    .abt_sub_menu,.theme_sub_menu,.login_sub_menu{
+        border: none;
+    }
+    #careers{
+        display: flex;
+        flex-direction: column;
+    }
+    .role{
+        width: 90vw;
+    }
+    .ca1{
+        margin: 0.05vmin 11.5vmin;
+    }
+    .cont{
+        width: 65vw;
+    }
+}
