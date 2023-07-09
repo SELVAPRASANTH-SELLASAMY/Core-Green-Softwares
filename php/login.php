@@ -26,7 +26,8 @@ else
         print("Account not found");
     }
     else{
-        if($row['password']==$pass2)
+        $verification=password_verify($pass2,$row['password']);
+        if($verification==true)
         {
             print("Logged in");
             $username=$row['firstname'];

@@ -78,8 +78,14 @@ if(isset($_POST['request']))
         $verify="SELECT password from student_datas WHERE(contact=$From)";
         $run=mysqli_query($connection2,$verify);
         $res=$run->fetch_assoc();
-        if($currentPassword == $res['password'])
+       //verify
+        $verify=password_verify($currentPassword,$res['password']);
+        if($verify==true)
         {
+            //encryption
+            $encryption=password_hash($newOne,PASSWORD_BCRYPT);
+            $newOne=$encryption;
+            //encryption
             $change="UPDATE student_datas SET password='$newOne' WHERE(contact=$From)";
             $changing=mysqli_query($connection2,$change);
             if($changing==1){
@@ -105,7 +111,9 @@ if(isset($_POST['request']))
         $verify="SELECT password FROM student_datas WHERE(contact=$account)";
         $check=mysqli_query($connection3,$verify);
         $dt=$check->fetch_assoc();
-        if($password==$dt['password']){
+        //encryption
+        $verify=password_verify($password,$dt['password']);
+        if($verify==true){
             $deleteQuery="DELETE FROM student_datas WHERE(contact=$account)";
             $runQuery=mysqli_query($connection3,$deleteQuery);
             if($runQuery==1)
