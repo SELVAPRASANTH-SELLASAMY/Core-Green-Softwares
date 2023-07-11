@@ -6,16 +6,14 @@ $R_no2=$_POST['r_no'];
 $dob2=$_POST['dob'];
 $cont2=$_POST['contact'];
 $pass2=$_POST['pass'];
-//hashing
 $encrypt=password_hash($pass2,PASSWORD_BCRYPT);
 $pass2=$encrypt;
-//hashing
 $date=$_POST['date'];
 $month=$_POST['month'];
 $year=$_POST['year'];
 $time=$_POST['time'];
 $mins=$_POST['minute'];
-$connection=mysqli_connect('localhost','root','','20MER121');
+$connection=mysqli_connect("sql202.infinityfree.com","if0_34591954","DuBcFJfFa6icd","20MER121");
 if(!$connection)
 {
     echo "Couldn't reach the servers...!!!";
