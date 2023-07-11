@@ -4,7 +4,7 @@ if(isset($_POST['request']))
 {
     if($_POST['request']=="getData"){
         $primarySelector=$_POST['key'];
-        $connection=mysqli_connect('localhost','root','','20MER121');
+        $connection=mysqli_connect("sql202.infinityfree.com","if0_34591954","DuBcFJfFa6icd","20MER121");
         if(!$connection)
         {
             die("couldn't reach the servers");
@@ -31,7 +31,7 @@ if(isset($_POST['request']))
         $cont=$_POST['cont'];
         $older=$_POST['previous_contact'];
         $contChangeRequest=$_POST['reqChangeCont'];
-        $connection1=mysqli_connect('localhost','root','','20MER121');
+        $connection1=mysqli_connect("sql202.infinityfree.com","if0_34591954","DuBcFJfFa6icd","20MER121");
         if(!$connection1){
             die("couldn't reach the servers");
         }
@@ -70,7 +70,7 @@ if(isset($_POST['request']))
         $From=$_POST['getFrom'];
         $currentPassword=$_POST['current'];
         $newOne=$_POST['newpassword'];
-        $connection2=mysqli_connect('localhost','root','','20MER121');
+        $connection2=mysqli_connect("sql202.infinityfree.com","if0_34591954","DuBcFJfFa6icd","20MER121");
         if(!$connection2)
         {
             die("couldn't reach the servers");
@@ -78,14 +78,11 @@ if(isset($_POST['request']))
         $verify="SELECT password from student_datas WHERE(contact=$From)";
         $run=mysqli_query($connection2,$verify);
         $res=$run->fetch_assoc();
-       //verify
         $verify=password_verify($currentPassword,$res['password']);
         if($verify==true)
         {
-            //encryption
             $encryption=password_hash($newOne,PASSWORD_BCRYPT);
             $newOne=$encryption;
-            //encryption
             $change="UPDATE student_datas SET password='$newOne' WHERE(contact=$From)";
             $changing=mysqli_query($connection2,$change);
             if($changing==1){
@@ -104,14 +101,13 @@ if(isset($_POST['request']))
     {
         $account=$_POST['account'];
         $password=$_POST['password'];
-        $connection3=mysqli_connect('localhost','root','','20MER121');
+        $connection3=mysqli_connect("sql202.infinityfree.com","if0_34591954","DuBcFJfFa6icd","20MER121");
         if(!$connection3){
             die("couldn't reach the servers");
         }
         $verify="SELECT password FROM student_datas WHERE(contact=$account)";
         $check=mysqli_query($connection3,$verify);
         $dt=$check->fetch_assoc();
-        //encryption
         $verify=password_verify($password,$dt['password']);
         if($verify==true){
             $deleteQuery="DELETE FROM student_datas WHERE(contact=$account)";
