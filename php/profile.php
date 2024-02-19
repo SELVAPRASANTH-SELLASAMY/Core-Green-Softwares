@@ -221,7 +221,7 @@ else if($_SERVER['REQUEST_METHOD'] === "POST"){
         if(!is_dir($uploadDir)){
             mkdir($uploadDir,0755,true);
         }
-        $filename = uniqid().'_'.$pic['name'];
+        $filename = uniqid().'_'.str_replace(' ','',$pic['name']);
         $path = $uploadDir.$filename;
         if(move_uploaded_file($pic['tmp_name'],$path)){
             $check_existing_pic = $connection -> prepare("SELECT profile_pic FROM personal_info WHERE id = ?");
@@ -230,7 +230,7 @@ else if($_SERVER['REQUEST_METHOD'] === "POST"){
                 $result = $check_existing_pic -> get_result();
                 if($result -> num_rows > 0){
                     $row = $result -> fetch_assoc();
-                    delete_pic($row['profile_pic']);
+                    $row['profile_pic'] !== null ? delete_pic($row['profile_pic']) : null;
                 }
             }
             else{

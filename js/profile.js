@@ -211,7 +211,7 @@ function PageLoad(){
             resident_country.innerText = placeArray ? placeArray[2] === "" ? "_" : placeArray[2] : "_";
 
             //profile picture
-            if(parse['profile_pic']){
+            if(parse['profile_pic'] !== null){
                 const img = document.createElement('img');
                 img.src = parse['profile_pic'];
                 img.alt = "";
@@ -644,7 +644,6 @@ function deletion(){
 }
 
 function setProfilePic(){
-    load(true);
     const input = document.createElement("input");
     input.type = "file";
     input.accept = "image/*";
@@ -652,6 +651,7 @@ function setProfilePic(){
     formData.append("field","upload_profile_pic");
     formData.append("userId",getCookie("user_id"));
     input.onchange = function(e){
+        load(true);
         formData.append("image",e.target.files[0]);
         $.ajax({
             method:"POST",
@@ -660,7 +660,6 @@ function setProfilePic(){
             contentType:false,
             processData:false,
             success:function(res){
-                console.log(res);
                 if(res === "profile picture set"){
                     response("Success!","Profile picture set.","#27ae60");
                 }
@@ -682,6 +681,7 @@ function setProfilePic(){
         })
     }
     input.click();
+    return false;
 }
 
 function remove_profile_pic(){
@@ -720,6 +720,7 @@ function remove_profile_pic(){
             }
         })
     }
+    return false;
 }
 
 function reset_field(field,form,warning){
