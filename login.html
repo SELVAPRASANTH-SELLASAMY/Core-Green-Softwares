@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="icon" href="./assets/logo.jpg">
+</head>
+<body>
+    <div class="left-side">
+        <!-- <p><b>Core Green</b> <span>equip yourself stronger</span></p>
+        <q>If, at first, you do not succeed, call it version 1.0.</q> -->
+    </div>
+    <div class="right-side">
+
+        <!--Login field-->
+
+        <form novalidate name="login-form" id="login-form">
+            <div id="login-response-message" class="response-message">Something went wrong!</div>
+            <h1>Welcome back!</h1>
+            <p>Please enter your username and password to sign in</p>
+            <div class="input">
+                <input type="text" name="user-name" id="user-name" autocomplete="off" required>
+                <p id="uname_warn" class="username-warn">This field is required!</p>
+                <label for="user-name"><span><img src="./assets/svg/username.svg" alt="username"></span>username</label>
+                <div class="line"></div>
+            </div>
+            <div class="input">
+                <input type="password" name="password" id="password" autocomplete="off" required>
+                <p id="pw_warn" class="password-warn">This field is required!</p>
+                <label for="password"><span><img src="./assets/svg/password.svg" alt="password"></span>password</label>
+                <div class="line"></div>
+            </div>
+            <div class="password-field">
+                <p><input name="show-password" id="show-password" type="checkbox">Show password</p>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button onclick="return login()" type="button">Submit</button>
+            <p class="sign-up">Don't have an account? <span id="sign-up-button">Sign Up</span></p>
+        </form>
+
+        <!--Registeration field-->
+
+        <form novalidate name="registeration-form" id="registeration-form">
+            <div id="registeration-response" class="response-message">Something went wrong!</div>
+            <h1>Welcome!</h1>
+            <p>Please fillout all the fields to sign up</p>
+            
+            <!--Page 1-->
+            <div id="page1" class="page1">
+                <div class="input">
+                    <input type="text" name="full-name" id="full-name" autocomplete="off" required>
+                    <p id="fname-warn" class="warn">This field is required!</p>
+                    <label for="full-name"><span><img src="./assets/svg/name.svg" alt="fullname"></span>Fullname</label>
+                    <div class="line"></div>
+                </div>
+                <div class="input">
+                    <input type="number" name="contact" id="contact" autocomplete="off" required>
+                    <p id="contact-warn" class="warn">This field is required!</p>
+                    <label for="contact"><span><img src="./assets/svg/contact.svg" alt="contact"></span>Contact number</label>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!--Page 2-->
+            <div id="page2" class="page2">
+                <div class="input">
+                    <input type="text" name="email" id="email" autocomplete="off" required>
+                    <p id="email-warn" class="warn">This field is required!</p>
+                    <label for="email"><span><img src="./assets/svg/email.svg" alt="email"></span>Email</label>
+                    <div class="line"></div>
+                </div>
+                <div class="input">
+                    <input type="text" name="user-name" id="reg-user-name" autocomplete="off" required>
+                    <p id="username-warn" class="warn">This field is required!</p>
+                    <label for="reg-user-name"><span><img src="./assets/svg/username.svg" alt="username"></span>Username</label>
+                    <div class="line"></div>
+                </div>
+            </div>
+            
+            <!--Page 3-->
+            <div id="page3" class="page3">
+                <div class="input">
+                    <input type="password" name="password" id="reg-password" autocomplete="off" required>
+                    <p id="password-warn" class="warn">This field is required!</p>
+                    <label for="reg-password"><span><img src="./assets/svg/password.svg" alt="password"></span>Password</label>
+                    <div class="line"></div>
+                </div>
+                <div class="input">
+                    <input type="password" name="confirm-password" id="confirm-password" autocomplete="off" required>
+                    <p id="con-pass-warn" class="warn">This field is required!</p>
+                    <label for="confirm-password"><span><img src="./assets/svg/password.svg" alt="confirm-password"></span>Confirm password</label>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="previous-button" type="button">Previous</button>
+                <button id="submit-button" type="button">Submit</button>
+                <button id="next-button" type="button">Next</button>
+            </div>
+            <p class="sign-in">Already have an account? <span id="sign-in-button">Sign In</span></p>
+        </form>
+
+        <div class="login-ui-icon"></div>
+        <div class="login-ui-icon-1"></div>
+    </div>
+    <div id="spinner" class="spinner">
+        <svg>
+            <circle cx="50%" cy="50%" r="1.25rem"></circle>
+        </svg>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.js"></script>
+    <script src="./js/login.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+</body>
+</html>

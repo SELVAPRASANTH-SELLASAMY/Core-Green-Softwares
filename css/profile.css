@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    width: 100%;
+    background-color: rgb(242, 246, 255);
+}
+header{
+    height: fit-content;
+    width: 100%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: relative;
+}
+.control-buttons{
+    width: fit-content;
+    border-radius: .25rem;
+    padding: .25rem;
+}
+.control-buttons img{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: .25rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+}
+.control-buttons img:nth-child(1){
+    margin-top: .1rem;
+}
+.save-id-proof,.save-personal-info,.save-bank-info{
+    display: none;
+}
+.heading{
+    display: flex;
+    align-items: center;
+}
+.user-info-edit-button{
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+}
+.save-personal-info{
+    margin: 0 .5rem;
+}
+.save-user-info{
+    position: absolute;
+    right: 5rem;
+    bottom: .85rem;
+    display: none;
+}
+.show-save-button{
+    display: block;
+}
+.settings{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.settings img#settings-button{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin: 1rem;
+    cursor: pointer;
+    margin-left: auto;
+    user-select: none;
+    transition: 250ms;
+}
+.settings-icon-rotate{
+    transform: rotate(90deg);
+}
+.settings-options{
+    height: 0;
+    width: 0;
+    background-color: white;
+    border-radius: .5rem;
+    overflow: hidden;
+    margin-right: 1rem;
+    transition: 250ms;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    z-index: 1;
+}
+.settings-options li:nth-child(3){
+    color: red;
+}
+.settings-active{
+    height: 9.375rem;
+    width: 15rem;
+}
+.settings-options li{
+    list-style: none;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: .1rem 0;
+    height: 3rem;
+    text-wrap: nowrap;
+}
+.settings-options li:hover{
+    background-color: #ebfeff;
+}
+.settings-options li span img{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    margin-right: .5rem;
+    display: grid;
+    place-content: center;
+}
+.cover-photo{
+    height: 8rem;
+    width: 100%;
+    background-image: url('../assets/16829080_5741168.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+}
+.cover-photo .canvas{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    margin: 1.5rem 5rem;
+    background-color: grey;
+    border: .25rem solid white;
+    display: inline-block;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    position: relative;
+}
+.canvas .upload-button{
+    height: 3rem;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.662);
+    position: absolute;
+    bottom: -3rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .85rem;
+    transition: 250ms;
+    user-select: none;
+}
+.canvas img{
+    height: 10rem;
+    width: 10rem;
+}
+.canvas .upload-button img{
+    /* background-color: green; */
+    height: 2rem;
+    width: 2rem;
+    margin: 0 .25rem;
+    padding: .25rem;
+    opacity: .65;
+    cursor: pointer;
+}
+.canvas:hover .upload-button{
+    bottom: 0;
+}
+.info{
+    height: 8.5rem;
+    display: flex;
+    width: 50rem;
+    justify-content: space-between;
+    margin: 0 4rem;
+    margin-top: 4rem;
+}
+.intro{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    border-radius: .25rem;
+    font-family: sans-serif;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+.intro #user-name{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.intro #designation{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: .4rem;
+    color: rgb(90, 90, 90);
+}
+.intro .resident{
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(100, 100, 100);
+    padding: 0;
+    text-wrap: wrap;
+}
+.intro .resident span:not(:last-child)::after{
+    content: ", ";
+}
+.contact-info{
+    width: fit-content;
+    padding: 1rem;
+    display: grid;
+    place-content: center;
+    font-size: 1rem;
+}
+.contact-info div{
+    display: flex;
+    margin: .5rem 0;
+    color: rgb(100, 100, 100);
+    font-weight: 400;
+    font-size: 1rem;
+}
+.contact-info img{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: .5rem;
+}
+.profile-strength{
+    height: 100%;
+    width: fit-content;
+    border-radius: .5rem;
+}
+.profile-strength svg{
+    height: 10rem;
+    width: 10rem;
+    display: grid;
+    place-content: center;
+}
+.profile-strength circle{
+    fill: none;
+    stroke: #006266;
+    stroke-width: .4rem;
+    stroke-dasharray: 18.84rem;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    stroke-linecap: round;
+    animation: cicleAnime 2s linear 1;
+    position: relative;
+}
+@keyframes cicleAnime {
+    0%{stroke-dashoffset: 18.84rem;}
+}
+svg text{
+    fill: rgb(100, 100, 100);
+    font-weight: 500;
+    font-size: .85rem;
+}
+svg .percent{
+    font-weight: 700;
+    font-size: 1rem;
+}
+.personal-info,.bank-info,.id-proof{
+    height: fit-content;
+    width: 40%;
+    min-width: 30%;
+    background-color: white;
+    padding: 2rem;
+    margin: 1rem 2.5%;
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 45%;
+}
+.personal-info h1,.bank-info h1,.id-proof h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.personal-info span,.bank-info span,.id-proof span{
+    width: 12.5rem;
+    font-size: 1rem;
+    color: rgb(127, 127, 127);
+}
+.personal-info p,.bank-info p,.id-proof p{
+    font-size: 1rem;
+    padding: 0 .65rem;
+    color: rgb(77, 77, 77);
+}
+.personal-info div,.bank-info div,.id-proof div{
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: .5rem 0;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+}
+::-webkit-scrollbar{
+    width: .5rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(175, 175, 175);
+    border-radius: 50px;
+}
+span img{
+    height: inherit;
+    border-radius: 50%;
+    padding: .1rem;
+    cursor: pointer;
+}
+main input{
+    height: fit-content;
+    width: 50%;
+    padding: 0 .5rem;
+    font-size: 1rem;
+    color: rgb(77, 77, 77);
+    font-weight: 500;
+    border: none;
+    outline: none;
+    transition: 250ms;
+    cursor: pointer;
+    border: .1rem solid transparent;
+}
+input:disabled{
+    cursor: text;
+}
+select{
+    height: fit-content;
+    font-size: 1rem;
+    width: 50%;
+    padding: 0 .5rem;
+    font-size: 1rem;
+    color: rgb(77, 77, 77);
+    font-weight: 500;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: 250ms;
+    cursor: pointer;
+    border: .1rem solid transparent;
+}
+select:disabled{
+    cursor: text;
+    color: rgb(0, 0, 0);
+}
+input:not(:disabled),select:not(:disabled){
+    border: .1rem solid grey;
+}
+input:focus,select:focus{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+input[type='date']::-webkit-calendar-picker-indicator{
+    display: none;
+}
+::selection{
+    background-color: #0063667d;
+}
+.spinner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.682);
+    z-index: 5;
+}
+header{
+    display: none;
+}
+main{
+    display: none;
+}
+.spinner circle{
+    stroke-width: .2rem;
+    stroke: white;
+    fill: none;
+    stroke-dasharray: 7.85rem;
+    stroke-dashoffset: 2rem;
+    stroke-linecap: round;
+    animation: rotate 1s linear infinite;
+    transform-origin: center;
+}
+.spinner svg{
+    height: 100%;
+    width: 100%;
+}
+@keyframes rotate {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+.server-response{
+    height: fit-content;
+    width: fit-content;
+    background-color: #27ae60;
+    padding: 1rem 2.5rem;
+    border-radius: .5rem;
+    color: white;
+    position: fixed;
+    top: -8rem;
+    right: .5rem;
+    transition: 250ms;
+    z-index: 3;
+}
+.server-response h1{
+    font-size: 2rem;
+}
+.server-response p{
+    font-size: 1rem;
+}
+input,select{
+    background-color: transparent;
+}
+.change-password,.change-about-user-details,.delete-account{
+    padding: 2rem;
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: .5rem;
+    position: fixed;
+    top: -16rem;
+    right: 1rem;
+    z-index: 2;
+    transition: 250ms;
+    max-width: 50rem;
+}
+.change-about-user-details{
+    top: -40rem;
+    max-height: 98vh;
+    overflow-y: auto;
+}
+.change-about-user-details #place{
+    width: 100%;
+    display: flex;
+    gap: .5rem;
+}
+.change-about-user-details::-webkit-scrollbar{
+    width: 0;
+}
+.change-password .page-2{
+    display: none;
+}
+.change-password button,.change-about-user-details button,.delete-account button{
+    padding: .5rem;
+    width: 5rem;
+    margin-top: .25rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    border: 0;
+    border-radius: .25rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+button:active{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+button.ok{
+    background-color: #1e90ff;
+}
+button.cancel{
+    background-color: #e74c3c;
+}
+.change-password p,.change-about-user-details p,.delete-account p{
+    color: red;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: right;
+    visibility: hidden;
+}
+.change-password input, .change-about-user-details input,.change-about-user-details select,.change-about-user-details option,.delete-account input{
+    height: 2.5rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0 1rem;
+    border-radius: .25rem;
+    outline-color: rgb(120, 176, 255);
+}
+.change-about-user-details input,.change-about-user-details option,.change-about-user-details select{
+    text-align: center;
+}
+.change-password label,.change-about-user-details label,.delete-account label{
+    font-size: 1rem;
+    color: black;
+    font-weight: 500;
+    display: block;
+    margin: .5rem 0;
+    margin-top: 0;
+}
+.change-password h1,.change-about-user-details h1,.delete-account h1{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width:950px){
+    .personal-info,.bank-info,.id-proof{
+        max-width: 100%;
+        min-width: 50%;
+    }
+}
+@media screen and (max-width:851px){
+    .info{
+        width: 90%;
+    }
+}
+@media screen and (max-width:769px){
+    .info{
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+        margin-left: 0;
+        width: 100%;
+    }
+    .cover-photo .canvas{
+        margin: 1.5rem auto;
+    }
+    .intro{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-info{
+        padding: .5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (max-width:500px){
+    .personal-info,.bank-info,.id-proof{
+        margin: 1rem .01rem;
+    }
+    .settings-options li{
+        font-size: .75rem;
+    }
+    .personal-info h1,.bank-info h1,.id-proof h1{
+        font-size: 1.25rem;
+    }
+    .personal-info p,.bank-info p,.id-proof p,
+    .personal-info input,.bank-info input,.id-proof input,
+    .personal-info select,.bank-info select,.id-proof select,
+    .personal-info span,.bank-info span,.id-proof span{
+        font-size: .75rem;
+    }
+    .personal-info span,.bank-info span,.id-proof span{
+        width: 8rem;
+        min-width: 8rem;
+    }
+    main{
+        padding: 1.5rem .5rem;
+    }
+    .intro #user-name{
+        font-size: 1.75rem;
+    }
+    .intro #designation{
+        font-size: .95rem;
+    }
+    .intro .resident{
+        font-size: .75rem;
+        text-align: center;
+    }
+    .contact-info div{
+        font-size: .75rem;
+    }
+    .contact-info img{
+        height: 1.25rem;
+        width: 1.25rem;
+    }
+    svg text{
+        font-size: .6rem;
+    }
+    svg .percent{
+        font-size: .75rem;
+    }
+    .server-response h1{
+        font-size: 1.5rem;
+    }
+    .server-response p{
+        font-size: .75rem;
+    }
+    .settings-active{
+        width: 12rem;
+    }
+    .change-password p,.change-password label,.change-password input,
+    .change-about-user-details p,.change-about-user-details label,.change-about-user-details input,.change-about-user-details select,.change-about-user-details option,.delete-account p,.delete-account label,.delete-account input{
+        font-size: .75rem;
+    }
+    .change-password input,.change-about-user-details input,.change-about-user-details select,.change-about-user-details option,.delete-account input{
+        height: 2rem;
+        padding: 0 .1rem;
+    }
+    .change-about-user-details #place{
+        gap: .25rem;
+    }
+    .change-password h1,.change-about-user-details h1,.delete-account h1{
+        font-size: 1.25rem;
+        margin-bottom: .25rem;
+    }
+    .change-password button,.change-about-user-details button,.delete-account button{
+        font-size: .75rem;
+    }
+    .change-about-user-details #place{
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+@media screen and (max-width:446px) {
+    .server-response{
+        max-width: 90vw;
+    }
+}

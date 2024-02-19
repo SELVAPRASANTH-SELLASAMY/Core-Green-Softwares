@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Green | Profile</title>
+    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="icon" href="./assets/logo.jpg">
+    <script>
+        const verify = document.cookie.includes("user_id") && document.cookie.includes("user");
+        if(!verify){
+            window.location.replace('login.html');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="settings">
+            <img src="./assets/svg/settings.svg" alt="settings" id="settings-button">
+            <div class="settings-options">
+                <li id="change-password-button"><span><img src="./assets/svg/password.svg" alt=""></span>Change password</li>
+                <li onclick="logout()"><span><img src="./assets/svg/logout.svg" alt=""></span>Sign out</li>
+                <li id="delete-account-button"><span><img src="./assets/svg/delete.svg" alt=""></span>Delete account</li>
+            </div>
+        </div>
+        <div class="cover-photo">
+            <div class="canvas">
+                <div class="upload-button">
+                    <img onclick="setProfilePic()" src="./assets/svg/add_pic.svg" alt="">
+                    <img onclick="remove_profile_pic()" src="./assets/svg/delete_white.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="intro">
+                <p class="user-name" id="user-name">-</p>
+                <p class="designation" id="designation">-</p>
+                <p class="resident">
+                    <span id="span-city">-</span>
+                    <span id="span-state">-</span>
+                    <span id="span-country">-</span>
+                </p>
+            </div>
+            <div class="contact-info">
+                <div class="email">
+                    <img src="./assets/svg/email.svg" alt="email">
+                    <p id="email">-</p>
+                </div>
+                <div class="phone">
+                    <img src="./assets/svg/contact.svg" alt="Phone">
+                    <p id="phone-number">-</p>
+                </div>
+            </div>
+            <div class="profile-strength">
+                <svg>
+                    <circle id="profile-strength-circle" cx="6rem" cy="5rem" r="3rem"></circle>
+                    <text x="50%" y="50%" text-anchor="middle"> 
+                        <tspan x="51%" y="38%" id="percent" class="percent">90%</tspan> 
+                        <tspan x="50%" y="50%">profile</tspan> 
+                    </text>
+                </svg>
+            </div>
+        </div>
+        <div class="control-buttons">
+            <img class="user-info-edit-button" src="./assets/edit.png" alt="edit">
+        </div>
+    </header>
+    <main>
+        <div class="personal-info">
+            <div class="heading">
+                <h1>Personal Information</h1>
+                <div class="control-buttons">
+                    <img class="edit-personal-info" src="./assets/edit.png" alt="edit">
+                    <img onclick="ModifyPersonalInfo()" class="save-personal-info" src="./assets/save.png" alt="done">
+                </div>
+            </div>
+            <div class="name-class">
+                <span>Username</span>
+                <p id="name" class="name">-</p>
+            </div>
+            <div class="dob-class">
+                <span>Date of Birth</span>
+                <input disabled type="date" value="" id="dob" name="dob" autocomplete="off">
+            </div>
+            <div class="age-class">
+                <span>Age</span>
+                <p id="age" class="age">-</p>
+            </div>
+            <div class="blood-group-class">
+                <span>Blood Group</span>
+                <select disabled name="blood" id="blood">
+                    <option value="">Select</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <div class="marital-status-class">
+                <span>Marital Status</span>
+                <select disabled name="marital-status" id="marital-status">
+                    <option value="">Select</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                </select>
+            </div>
+            <div class="gender-class">
+                <span>Gender</span>
+                <select disabled name="gender" id="gender">
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Third gender">Third Gender</option>
+                </select>
+            </div>
+            <div class="languages-class">
+                <span>Languages Known</span>
+                <input disabled type="text" value="" placeholder="-" id="lang" name="lang" autocomplete="off">
+            </div>
+            <div class="religious-class">
+                <span>Religion</span>
+                <input disabled type="text" value="" placeholder="-" id="religion" name="religion" autocomplete="off">
+            </div>
+            <div class="nationality-class">
+                <span>Nationality</span>
+                <select disabled name="nationality" id="nationality">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="bank-info">
+            <div class="heading">
+                <h1>Bank Information</h1>
+                <div class="control-buttons">
+                    <img class="edit-bank-info" src="./assets/edit.png" alt="edit">
+                    <img onclick="ModifyBankInfo()" class="save-bank-info" src="./assets/save.png" alt="done">
+                </div>
+            </div>
+            <div class="bank-name-class">
+                <span>Bank Name</span>
+                <input disabled type="text" value="" placeholder="-" id="bank-name" name="bank-name" autocomplete="off">
+            </div>
+            <div class="ac-number-class">
+                <span>Account Number</span>
+                <input disabled type="text" value="" placeholder="-" id="ac-number" name="ac-number" autocomplete="off">
+            </div>
+            <div class="branch-class">
+                <span>Branch</span>
+                <input disabled type="text" value="" placeholder="-" id="branch" name="branch" autocomplete="off">
+            </div>
+            <div class="ac-holder-name-class">
+                <span>Account Holder Name</span>
+                <input disabled type="text" value="" placeholder="-" id="ac-holder-name" name="ac-holder-name" autocomplete="off">
+            </div>
+            <div class="ifsc-class">
+                <span>IFSC Code</span>
+                <input disabled type="text" value="" placeholder="-" id="ifsc" name="ifsc" autocomplete="off">
+            </div>
+        </div>
+        <div class="id-proof">
+            <div class="heading">
+                <h1>ID Proof</h1>
+                <div class="control-buttons">
+                    <img class="edit-id-proof" src="./assets/edit.png" alt="edit">
+                    <img onclick="ModifyIdProof()" class="save-id-proof" src="./assets/save.png" alt="done">
+                </div>
+            </div>
+            <div class="aadhaar-class">
+                <span>Aadhaar</span>
+                <input disabled type="text" value="" placeholder="-" id="aadhaar-number" name="aadhaar-number" autocomplete="off">
+            </div>
+            <div class="pan-class">
+                <span>PAN</span>
+                <input disabled type="text" value="" placeholder="-" id="pan" name="pan" autocomplete="off">
+            </div>
+            <div class="passport-class">
+                <span>Passport</span>
+                <input disabled type="text" value="" placeholder="-" id="passport" name="passport" autocomplete="off">
+            </div>
+            <div class="driving-license-class">
+                <span>Driving License</span>
+                <input disabled type="text" value="" placeholder="-" id="driving-license" name="driving-license" autocomplete="off">
+            </div>
+        </div>
+        <div class="change-password">
+            <h1>Change password</h1>
+            <form id="change-password" name="change-password">
+                <div id="page-1" class="page-1">
+                    <label for="current-password">Current password</label>
+                    <input type="password" id="current-password" name="current-password" autocomplete="off">
+                    <p id="current-password-warn">This field is required!</p>
+                </div>
+                <div id="page-2" class="page-2">
+                    <label for="new-password">New password</label>
+                    <input type="password" id="new-password" name="new-password" autocomplete="off">
+                    <p id="new-password-warn">This field is required!</p>
+                    <label for="confirm-new-password">Confirm new password</label>
+                    <input type="password" id="confirm-new-password" name="confirm-new-password" autocomplete="off">
+                    <p id="con-password-warn">This field is required!</p>
+                </div>
+                <button type="button" class="cancel" id="cancel_change_password">CANCEL</button>
+                <button type="button" class="ok" onclick="changePassword()">OK</button>
+            </form>
+        </div>
+        <div id="delete-account" class="delete-account">
+            <h1>Delete account</h1>
+            <form id="delete-my-account" name="delete-my-account">
+                <label for="user-password">Password</label>
+                <input type="password" id="user-password" name="user-password" autocomplete="off">
+                <p id="user-password-warn">This field is required!</p>
+                <button type="button" class="cancel" id="cancel_deletion">CANCEL</button>
+                <button onclick="deletion()" type="button" class="ok">OK</button>
+            </form>
+        </div>
+        <div id="change-user-details-field" class="change-about-user-details">
+            <h1>Change details</h1>
+            <form id="change-about-user-details" name="change-about-user-details">
+                <label for="current-name">Name</label>
+                <input placeholder="Fullname" type="text" id="current-name" name="current-name" autocomplete="off">
+                <p id="current-name-warn">This field is required!</p>
+                <label for="current-desig">Designation</label>
+                <input placeholder="Current designation" type="text" id="current-desig" name="current-desig" autocomplete="off">
+                <p id="current-desig-warn">This field is required!</p>
+                <label for="city">Resident place</label>
+                <div id="place">
+                    <input placeholder="City" type="text" id="city" name="city" autocomplete="off">
+                    <input placeholder="State" type="text" id="state" name="state" autocomplete="off">
+                    <select name="country" id="country" autocomplete="off">
+                        <option value="">Select</option>
+                    </select>
+                </div>
+                <p id="current-place-warn">This field is required!</p>
+                <label for="current-email">Email</label>
+                <input placeholder="Primary email" type="text" id="current-email" name="current-email" autocomplete="off">
+                <p id="current-email-warn">This field is required!</p>
+                <label for="current-contact">Contact</label>
+                <input placeholder="Primary contact number" type="text" id="current-contact" name="current-contact" autocomplete="off">
+                <p id="current-contact-warn">This field is required!</p>
+                <button type="button" class="cancel" id="cancel_change_about-user-details">CANCEL</button>
+                <button type="button" class="ok" onclick="ModifyInfo()">OK</button>
+            </form>
+        </div>
+    </main>
+
+    <div id="server-response" class="server-response">
+        <h1>Success!</h1>
+        <p>Personal Informations updated</p>
+    </div>
+    <div id="spinner" class="spinner">
+        <svg>
+            <circle cx="50%" cy="50%" r="1.25rem"></circle>
+        </svg>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.js"></script>
+    <script src="./js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    min-height: fit-content;
+    display: flex;
+}
+form{
+    width: 35rem;
+    height: fit-content;
+    /* background-color: lightblue; */
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+form::-webkit-scrollbar{
+    width: 0;
+}
+form .input{
+    height: fit-content;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+    /* background-color: green; */
+}
+form input{
+    height: 2.5rem;
+    width: 100%;
+    padding: 0 .5rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    border-bottom: .1rem solid rgb(197, 197, 197);
+    background-color: transparent;
+}
+form label{
+    font-size: 1rem;
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    transition: 500ms;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}
+form label span{
+    /* background-color: red; */
+    display: grid;
+    place-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: .25rem;
+}
+form label span img{
+    height: 1.25rem;
+    width: 1.25rem;
+}
+form .line{
+    height: .1rem;
+    width: 0%;
+    background-color: #006266;
+    position: absolute;
+    bottom: 0;
+    transition: 500ms;
+}
+input:valid ~ label,input:focus ~ label{
+    bottom: 2.25rem;
+}
+input:focus ~ .line, input:valid ~ .line{
+    width: 100%;
+}
+form button{
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    width: 8rem;
+    min-width: fit-content;
+    border: none;
+    background-color: #006266;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin: 1rem auto;
+    font-style: italic;
+    -webkit-tap-highlight-color: transparent;
+}
+form button:active{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+form h1{
+    font-size: 2.5rem;
+    margin: .25rem .5rem;
+    font-style: italic;
+}
+form p{
+    font-size: 1rem;
+    margin: 0 .5rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+form .username-warn,form .password-warn,.warn{
+    color: red;
+    position: absolute;
+    right: 0;
+    bottom: -2.5rem;
+    font-size: .85rem;
+    visibility: hidden;
+}
+.response-message{
+    color: red;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0 auto;
+    font-style: italic;
+    visibility: hidden;
+}
+form .sign-up,form .sign-in{
+    text-align: center;
+    font-size: .75rem;
+    margin-top: 1rem;
+}
+form #sign-in-button,form #sign-up-button,form a{
+    text-decoration: none;
+    color: #009196;
+    font-style: italic;
+    cursor: pointer;
+}
+.password-field{
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-wrap: nowrap;
+}
+.password-field p{
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+}
+.password-field input[type="checkbox"]{
+    height: .75rem;
+    width: .75rem;
+    margin-right: .25rem;
+    cursor: pointer;
+}
+.password-label img{
+    height: 1.25rem;
+    width: 1.25rem;
+}
+.right-side{
+    /* background-color: lightblue; */
+    height: 100vh;
+    width: 45%;
+    display: grid;
+    place-content: center;
+    min-width: fit-content;
+    position: relative;
+}
+.login-ui-icon,.login-ui-icon-1{
+    height: 10rem;
+    width: 10rem;
+    background-image: url('../assets/svg/login_ui.svg');
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+.login-ui-icon-1{
+    height: 10rem;
+    width: 10rem;
+    top: 0;
+    left: 0;
+    background-image: url('../assets/svg/login_ui_1.svg');
+}
+.left-side{
+    height: 100vh;
+    width: 55%;
+    background-image: url('../assets/woman.jpg');
+    background-position: center;
+    background-size: cover;
+}
+/* .left-side q{
+    font-size: 1.5rem;
+    color: white;
+    font-style: italic;
+    text-shadow: .1rem .1rem .1rem black,0 0 .5rem blue;
+}
+.left-side p{
+    color: white;
+    font-size: 2rem;
+    font-style: italic;
+    text-shadow: .25rem .1rem .1rem black,0 0 1rem blue;
+} */
+
+#login-form{
+    display: flex;
+}
+#registeration-form{
+    display: none;
+    /* padding: 5rem 2.5rem; */
+}
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+.buttons{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    margin: 0 auto;
+}
+.buttons button{
+    margin: 1rem .25rem;
+}
+.buttons button:disabled{
+    opacity: .7;
+    box-shadow: none;
+}
+.page1,.page2,.page3{
+    flex-direction: column;
+    display: none;
+}
+.page1{
+    display: flex;
+}
+#previous-button,#submit-button{
+    display: none;
+}
+.spinner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.682);
+    display: none;
+}
+.spinner circle{
+    stroke-width: .2rem;
+    stroke: white;
+    fill: none;
+    stroke-dasharray: 7.85rem;
+    stroke-dashoffset: 2rem;
+    stroke-linecap: round;
+    animation: rotate 1s linear infinite;
+    transform-origin: center;
+}
+.spinner svg{
+    height: 100%;
+    width: 100%;
+}
+@keyframes rotate {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+
+/*Responsive design*/
+@media screen and (max-width:1120px){
+    form{
+        width: 30rem;
+    }
+    form input{
+        font-size: .75rem;
+    }
+    form label{
+        font-size: .75rem;
+    }
+    form button{
+        font-size: .75rem;
+    }
+    form h1{
+        font-size: 2.25rem;
+    }
+    form p{
+        font-size: .75rem;
+        text-wrap: nowrap;
+    }
+    form .username-warn,form .password-warn,.warn{
+        font-size: .65rem;
+    }
+    .response-message{
+        font-size: .75rem;
+    }
+    form .sign-up,form .sign-in{
+        font-size: .65rem;
+    }
+    .password-field{
+        font-size: .65rem;
+    }
+    .password-field p{
+        font-size: .65rem;
+    }
+}
+@media screen and (max-width:900px){
+    form{
+        width: 25rem;
+    }
+}
+@media screen and (max-width:769px){
+    body{
+        display: block;
+        overflow-y: auto;
+    }
+    .left-side,.right-side{
+        width: 100%;
+    }
+    .right-side{
+        height: fit-content;
+    }
+    .left-side{
+        height: 25rem;
+    }
+}
+@media screen and (max-width:426px){
+    .left-side{
+        height: 15rem;
+    }
+    form{
+        padding: 1rem;
+        width: 95vw;
+    }
+    .login-ui-icon,.login-ui-icon-1{
+        height: 5rem;
+        width: 5rem;
+    }
+}
+@media screen and (max-width:376px){
+    form h1{
+        font-size: 2rem;
+    }
+    form p{
+        text-wrap: wrap;
+    }
+}
