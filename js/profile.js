@@ -309,6 +309,10 @@ function response(h,p,color){
 }
 
 function ModifyInfo(){
+    var confirm = window.confirm("Save Changes?");
+    if(!confirm){
+        return;
+    }
     load(true);
     const obj = {
         "field":"info",
@@ -376,6 +380,10 @@ function validateEmail(email){
 }
 
 function ModifyPersonalInfo(){
+    var confirm = window.confirm("Save Changes?");
+    if(!confirm){
+        return;
+    }
     load(true);
     const obj = {
         "field":"personal_info",
@@ -411,6 +419,10 @@ function ModifyPersonalInfo(){
 }
 
 function ModifyBankInfo(){
+    var confirm = window.confirm("Save Changes?");
+    if(!confirm){
+        return;
+    }
     load(true);
     const obj = {
         "field":"bank_info",
@@ -444,6 +456,10 @@ function ModifyBankInfo(){
 }
 
 function ModifyIdProof(){
+    var confirm = window.confirm("Save Changes?");
+    if(!confirm){
+        return;
+    }
     load(true);
     const obj = {
         "field":"id_proof",
@@ -527,6 +543,10 @@ function ChangingPassword(){
         confirmpassword_warn.innerText = cnp === "" ? "This field is required!" : cnp !== npw ? "Passwords do not match!" : "Matched";
         confirmpassword_warn.style.visibility = cnp === "" || (cnp !== npw) ? "visible" : "hidden";
         if(npw !== "" && cnp !== "" && (check_password === "valid" && cnp === npw)){
+            var confirm = window.confirm("Are you sure want to change your password?");
+            if(!confirm){
+                return;
+            }
             $.ajax({
                 method:"POST",
                 url:domain+"php/profile.php",
@@ -593,6 +613,10 @@ function togglePageVisibility(page){
 
 const user_password = document.getElementById('user-password');
 function deletion(){
+    var confirm = window.confirm("Are you sure want to delete your account?");
+    if(!confirm){
+        return;
+    }
     load(true);
     user_password_warn.style.visibility = user_password.value ? "hidden" : "visible";
     user_password_warn.innerText = user_password.value ? "Invalid password!" : "This field is required!";
@@ -651,6 +675,10 @@ function setProfilePic(){
     formData.append("field","upload_profile_pic");
     formData.append("userId",getCookie("user_id"));
     input.onchange = function(e){
+        var confirm = window.confirm("Change profile picture?");
+        if(!confirm){
+            return;
+        }
         load(true);
         formData.append("image",e.target.files[0]);
         $.ajax({
@@ -687,6 +715,10 @@ function setProfilePic(){
 function remove_profile_pic(){
     const pic = document.getElementById('users_profile_picture');
     if(pic){
+        var confirm = window.confirm("Are you sure want to remove your profile picture?");
+        if(!confirm){
+            return;
+        }
         load(true);
         var prefix = domain === "http://localhost/coregreen/" ? "http://127.0.0.1:5500/" : domain;
         var pic_modified;
@@ -731,6 +763,10 @@ function reset_field(field,form,warning){
 }
 
 function logout(){
+    var confirm = window.confirm("Are you sure want to sign out?");
+    if(!confirm){
+        return;
+    }
     document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "user_id=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     window.location.reload();
