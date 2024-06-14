@@ -23,25 +23,20 @@ body{
 }
 ::-webkit-scrollbar{
     width: .5rem;
-    /* background-color: red; */
 }
 ::-webkit-scrollbar-thumb{
     border-radius: 50px;
     background-color: lightgrey;
-}
-img {
-    image-rendering: pixelated;
-}  
+} 
 .org img{
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2rem;
+    width: 2rem;
     border-radius: 50%;
     margin: 0 .5rem;
-    border: .1rem solid white;
 }
 .org p{
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 500;
     text-shadow: 0 0 2px yellowgreen;
     text-wrap: nowrap;
     color: white;
@@ -49,7 +44,7 @@ img {
 .org{
     display: inline-flex;
     align-items: center;
-    margin: 0 1rem;
+    margin: 0 2rem;
 }
 header{
     width: 100%;
@@ -83,7 +78,7 @@ nav a,nav li{
     list-style: none;
     font-size: 1rem;
     font-weight: 500;
-    padding: .5rem 1rem;
+    padding: 0 1rem;
     border-radius: .25rem;
     margin: 0 .1rem;
     color: white;
@@ -97,7 +92,7 @@ nav li{
     -webkit-tap-highlight-color: transparent;
 }
 nav a:hover,nav li:hover{
-    background-image: linear-gradient(#00888d,#004f51);
+    color: #0dff00;
 }
 nav{
     display: inline-flex;
@@ -112,19 +107,38 @@ button{
 .index{
     height: 100vh;
     width: 100%;
-    background-image: url('../assets/programming-background-with-person-working-with-codes-computer.jpg');
+    background-image: url('../assets/ofc_building.jpg');
     background-position: center;
     background-size: cover;
-    display: grid;
-    place-content: center;
     color: white;
-    text-align: center;
+    display: flex;
 }
 .index h1{
-    font-size: 2rem;
+    font-size: 3rem;
+    text-align: left;
+    margin: auto 5rem;
+    width: fit-content;
+    text-shadow: 0 0 2px yellowgreen;
+    position: relative;
+    text-wrap: nowrap;
 }
-.index h2{
-    font-size: 1.5rem;
+.index h1 span{
+    opacity: 0;
+    animation: index-text-animation calc(var(--i)*500ms) ease-in-out forwards 1;
+}
+@keyframes index-text-animation {
+    From{
+        opacity: 0;
+    }
+    To{
+        opacity: 1;
+    }
+}
+.index h1 span:first-child{
+    color: #0ce600;
+}
+.index h1 span:last-child{
+    font-size: 2.25rem;
 }
 
 /*Home*/
@@ -528,7 +542,6 @@ textarea::-webkit-scrollbar-thumb{
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
-    border: .05rem solid white;
 }
 .org-name p{
     font-size: 1rem;
@@ -612,11 +625,11 @@ textarea::-webkit-scrollbar-thumb{
     }
     /*Index*/
     .index h1{
-        font-size: 1.75rem;
+        font-size: 2.75rem;
     }
-    .index h2{
+    /* .index h2{
         font-size: 1.25rem;
-    }
+    } */
 
     /*Home*/
     .home .who-we-are p{
@@ -624,6 +637,9 @@ textarea::-webkit-scrollbar-thumb{
     }
     .home .who-we-are h1{
         font-size: 1.25rem;
+    }
+    .index h1 span:last-child{
+        font-size: 2rem;
     }
 
     /*Career*/
@@ -763,6 +779,13 @@ textarea::-webkit-scrollbar-thumb{
     .index{
         height: 25rem;
     }
+    .index h1{
+        font-size: 1.75rem;
+        margin: auto 2.5rem;
+    }
+    .index h1 span:last-child{
+        font-size: 1.25rem;
+    }
 
     /*Home*/
     .home{
@@ -869,10 +892,19 @@ textarea::-webkit-scrollbar-thumb{
         height: 15rem;
     }
     .index h1{
-        font-size: 1.25rem;
+        font-size: 1rem;
+        margin: auto 1.5rem;
     }
-    .index h2{
+    .index h1 span:last-child{
         font-size: .75rem;
+    }
+    .org{
+        margin: 0 0.5rem;
+        /* background-color: green; */
+    }
+    .org img{
+        height: 1.5rem;
+        width: 1.5rem;
     }
 
     /*Site-info*/

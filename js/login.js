@@ -102,7 +102,8 @@ function login(){
                         const expires = "expires="+date.toUTCString();
                         document.cookie = ("user="+encrypt(userCredentials.username)+";"+expires+";path=/");
                         document.cookie = ("user_id="+encrypt(res)+";"+expires+";path=/");
-                        window.location.replace('profile.html');
+                        window.location.replace('/profile.html');
+                        window.history.replaceState(null,null,'/profile.html');
                     }
                     loading(false);
                 },
