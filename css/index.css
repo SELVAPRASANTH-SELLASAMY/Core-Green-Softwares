@@ -108,6 +108,8 @@ button{
     height: 100vh;
     width: 100%;
     background-image: url('../assets/ofc_building.jpg');
+    /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
+
     background-position: center;
     background-size: cover;
     color: white;
@@ -204,43 +206,69 @@ button{
 .expectation p{
     font-size: 1rem;
 }
+
+
+
 .jobs .job-tile{
-    padding: 1rem 1rem;
     border-radius: .5rem;
-    margin: .5rem .5rem;
-    color: white;
-    flex-grow: 1;
-    width: 50%;
-    transition: 250ms;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    overflow: hidden;
 }
-.jobs .job-tile:nth-child(1){
+.jobs table{
+    /* width: 50rem; */
+    border-collapse: collapse;
+    font-size: 1rem;
+    color: #ffffff;
+}
+.jobs table th{
+    padding: .1rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    width: 20%;
+    /* border-right: .1rem dashed white; */
+}
+.jobs table td{
+    padding: .25rem 1rem;
+    width: 80%;
+}
+.jobs table caption{
+    font-size: 1.5rem;
+    color: #000000;
+    font-weight: 700;
+    text-align: left;
+    padding: .5rem 1rem;
+    color: #ffffff;
+    border-radius: .5rem;
+    margin: .1rem 0;
+}
+
+.jobs .job-tile:nth-child(1),.jobs .job-tile:nth-child(1) caption{
     background-color: #e84118;
 }
-.jobs .job-tile:nth-child(2){
+.jobs .job-tile:nth-child(2),.jobs .job-tile:nth-child(2) caption{
     background-color: #006266;
 }
-.jobs .job-tile:nth-child(3){
+.jobs .job-tile:nth-child(3), .jobs .job-tile:nth-child(3) caption{
     background-color: #3c6382;
 }
-.jobs .job-tile h1{
+/* .jobs .job-tile h1{
     font-size: 1.5rem;
 }
 .jobs .job-tile p{
     font-size: 1rem;
-    /* background-color: red; */
-}
+    background-color: red;
+} */
 .jobs .job-tile button{
     padding: .5rem 1rem;
     border-radius: 50px;
     border: none;
     font-size: 1rem;
     font-weight: 500;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
+    margin: .5rem 0;
     cursor: pointer;
     /* background-color: #10ac84; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    
+    text-wrap: nowrap;
 }
 .jobs .job-tile button:active{
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -250,9 +278,10 @@ button{
     /* background-color: green; */
     height: fit-content;
     width: 90%;
-    display: flex;
-    justify-content: space-between;
     margin: auto auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(12.5rem,1fr));
+    gap: 0 1rem;
 }
 
 /*About*/
@@ -649,14 +678,27 @@ textarea::-webkit-scrollbar-thumb{
     .expectation p{
         font-size: .75rem;
     }
-    .jobs .job-tile h1{
+    /* .jobs .job-tile h1{
         font-size: 1.25rem;
     }
     .jobs .job-tile p{
         font-size: .75rem;
-    }
+    } */
     .jobs .job-tile button{
         font-size: .75rem;
+    }
+    .jobs .job-tile caption{
+        font-size: 1.25rem;
+    }
+    .jobs table th{
+        width: 30%;
+        /* background-color: yellow; */
+    }
+    .jobs .job-tile th,.jobs .job-tile td{
+        font-size: .75rem;
+    }
+    .jobs{
+        /* grid-template-columns: repeat(auto-fill,minmax(20rem,1fr)); */
     }
 
     /*About*/
@@ -826,15 +868,18 @@ textarea::-webkit-scrollbar-thumb{
         width: 98%;
         margin: .5rem auto;
     }
-    .jobs p{
+    /* .jobs p{
         display: inline;
         padding-right: 1rem;
     }
     .jobs{
         flex-direction: column;
-    }
+    } */
     .jobs .job-tile button{
         display: block;
+    }
+    .jobs{
+        grid-template-columns: 100%;
     }
 
     /*About*/
@@ -964,11 +1009,11 @@ textarea::-webkit-scrollbar-thumb{
     }
  }
 
- @media screen and (min-width:768px){
+ /* @media screen and (min-width:768px){
     .jobs .job-tile:hover{
         transform: scale(1.05);
     }
     .service-group .service-tile:hover{
         transform: scale(1.025);
     }
- }
+ } */

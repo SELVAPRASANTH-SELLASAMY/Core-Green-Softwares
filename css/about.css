@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+}
+img{
+    border-radius: 1rem;
+    transition: 500ms;
+}
+::-webkit-scrollbar{
+    width: .5rem;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 50px;
+    background-color: lightgrey;
+} 
+header.about-us{
+    background-color: #ffffff;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+header.about-us h1{
+    font-size: 2rem;
+    text-align: center;
+}
+main{
+    margin-top: 6rem;
+    padding: 0 2.5rem;
+}
+/* main section.founded,main section.growth,main section.innovation,main section.csr,main section.future{
+    padding: 0 2.5rem;
+} */
+main section.founded h2,main section.growth h2,main section.innovation h2,main section.csr h2,main section.future h2{
+    font-size: 1.5rem;
+}
+main section.founded p,main section.growth p,main section.innovation p,main section.csr p,main section.future p{
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+footer{
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #006266;
+    color: #ffffff;
+    margin-top: 2rem;
+}
+.copyright p{
+    font-size: 1rem;
+}
+.copyright span{
+    font-size: 1rem;
+    margin: 0 .25rem;
+    font-weight: 600;
+}
+section.growth img{
+    width: 30rem;
+    margin: 1rem 0;
+}
+section.growth .exp{
+    width: 100%;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+section.founded{
+    display: flex;
+    flex-direction: column;
+}
+section.founded .images{
+    width: fit-content;
+    display: grid;
+    grid-template-areas: 
+                        "fourth first second"
+                        "fourth third second";
+    align-self: center;
+    margin: 1rem 0;
+    gap: .5rem;
+}
+
+section.founded .images img{
+    width: 18.5rem;
+}
+section.founded .images img:nth-child(1){
+    grid-area: first;
+}
+section.founded .images img:nth-child(2){
+    grid-area: second;
+}
+section.founded .images img:nth-child(3){
+    grid-area: third;
+}
+section.founded .images img:nth-child(4){
+    grid-area: fourth;
+}
+section.innovation{
+
+}
+section.innovation .about-innovation{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2.5rem;
+    align-items: center;
+}
+section.innovation .about-innovation img{
+    width: 30rem;
+}
+/* section.innovation .about-innovation .details{
+
+} */
+section.csr{
+    display: flex;
+    flex-direction: column;
+}
+section.csr figure{
+    width: 50%;
+    display: grid;
+    width: fit-content;
+    grid-template-areas: 
+                            "first second"
+                            "first third";
+    align-self: center;
+    margin: 1rem 0;
+    gap: .5rem;
+}
+section.csr figure img{
+    width: 25rem;
+}
+section.csr figure img:nth-child(1){
+    grid-area: first;
+}
+section.csr figure img:nth-child(2){
+    grid-area: second;
+}
+section.csr figure img:nth-child(3){
+    grid-area: third;
+}
+section.future{
+    display: flex;
+    flex-direction: column;
+}
+section.future img{
+    width: 50rem;
+    align-self: center;
+}
+
+@media screen and (max-width:1120px){
+    img{
+        border-radius: .5rem;
+    }
+    header.about-us h1{
+        font-size: 1.75rem;
+    }
+    main section.founded h2,main section.growth h2,main section.innovation h2,main section.csr h2,main section.future h2{
+        font-size: 1.25rem;
+    }
+    main section.founded p,main section.growth p,main section.innovation p,main section.csr p,main section.future p,main p,.copyright p,.copyright span{
+        font-size: .75rem;
+    }
+    section.growth .exp{
+        flex-direction: column;
+        gap: 0;
+    }
+    section.growth img{
+        width: 30rem;
+    }
+    section.founded .images img{
+        width: 10rem;
+    }
+    section.innovation .about-innovation{
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+    section.innovation .about-innovation img{
+        width: 28rem;
+        margin-bottom: 1rem;
+    }
+    section.csr figure img{
+        width: 15rem;
+    }
+    section.future img{
+        width: 35rem;
+    }
+}
+
+@media screen and (max-width:600px) {
+    main{
+        margin-top: 4.5rem;
+    }
+    header.about-us h1{
+        font-size: 1.25rem;
+    }
+    main section.founded h2,main section.growth h2,main section.innovation h2,main section.csr h2,main section.future h2{
+        font-size: 1rem;
+    }
+    img{
+        border-radius: .25rem;
+    }
+    main{
+        padding: 0 1.5rem;
+    }
+    section.growth img{
+        width: 20rem;
+    }
+    section.founded .images{
+        gap: .25rem;
+    }
+    section.founded .images img{
+        width: 6.5rem;
+    }
+    section.innovation .about-innovation img{
+        width: 20rem;
+        margin-bottom: 1rem;
+    }
+    section.csr figure{
+        gap: .25rem;
+    }
+    section.csr figure img{
+        width: 10rem;
+    }
+    section.future img{
+        width: 22.5rem;
+    }
+}
+
+@media screen and (max-width:375px){
+    section.growth img{
+        width: 15rem;
+    }
+    section.founded .images img{
+        width: 5rem;
+    }
+    section.innovation .about-innovation img{
+        width: 15rem;
+        margin-bottom: 1rem;
+    }
+    section.csr figure img{
+        width: 6.5rem;
+    }
+    section.future img{
+        width: 18rem;
+    }
+}
