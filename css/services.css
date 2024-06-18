@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+}
+::-webkit-scrollbar{
+    width: .5rem;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 50px;
+    background-color: lightgrey;
+}
+header{
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #ffffff;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+header h1{
+    font-size: 2rem;
+}
+main{
+    padding: 1rem 3.5rem;
+    margin-top: 4.5rem;
+}
+section h2{
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+hr{
+    margin-top: 2rem;
+}
+main section h2{
+    font-size: 1.5rem;
+}
+main section p{
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+}
+main section img{
+    width: 15rem;
+    border-radius: .25rem;
+}
+footer{
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #006266;
+    color: #ffffff;
+    margin-top: .5rem;
+}
+.copyright p{
+    font-size: 1rem;
+}
+.copyright span{
+    font-size: 1rem;
+    margin: 0 .25rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width:1120px){
+    header h1{
+        font-size: 1.75rem;
+    }
+    main section h2{
+        font-size: 1.25rem;
+    }
+    main section p{
+        font-size: .75rem;
+    }
+    .copyright p,.copyright span{
+        font-size: .75rem;
+    }
+}
+@media screen and (max-width:768px) {
+    main{
+        padding: 0 1.5rem;
+        margin-top: 6rem;
+    }
+}
+@media screen and (max-width:625px) {
+    main section img{
+        width: 100%;
+    }
+    main section p{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
