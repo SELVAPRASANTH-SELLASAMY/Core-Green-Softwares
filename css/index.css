@@ -697,9 +697,9 @@ textarea::-webkit-scrollbar-thumb{
     .jobs .job-tile th,.jobs .job-tile td{
         font-size: .75rem;
     }
-    .jobs{
-        /* grid-template-columns: repeat(auto-fill,minmax(20rem,1fr)); */
-    }
+    /* .jobs{
+        grid-template-columns: repeat(auto-fill,minmax(20rem,1fr));
+    } */
 
     /*About*/
     .about .about-company h1,.about .mission h1,.what-sets-us-apart h1{

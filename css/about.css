@@ -106,9 +106,9 @@ section.founded .images img:nth-child(3){
 section.founded .images img:nth-child(4){
     grid-area: fourth;
 }
-section.innovation{
+/* section.innovation{
 
-}
+} */
 section.innovation .about-innovation{
     display: flex;
     flex-direction: row-reverse;
@@ -199,6 +199,7 @@ section.future img{
 @media screen and (max-width:600px) {
     main{
         margin-top: 4.5rem;
+        padding: 0 1.5rem;
     }
     header.about-us h1{
         font-size: 1.25rem;
@@ -208,9 +209,6 @@ section.future img{
     }
     img{
         border-radius: .25rem;
-    }
-    main{
-        padding: 0 1.5rem;
     }
     section.growth img{
         width: 20rem;
