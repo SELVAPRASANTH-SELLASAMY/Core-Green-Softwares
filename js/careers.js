@@ -36,7 +36,7 @@ const response_field = document.getElementById('response-message');
 function application_response(msg,color){
     response_field.innerHTML = msg;
     response_field.style.color = color;
-    response_field.style.top = '5.5rem';
+    response_field.style.top = '1rem';
     setTimeout(()=>{
         response_field.style.top = '-5.5rem';
     },[3000]);
