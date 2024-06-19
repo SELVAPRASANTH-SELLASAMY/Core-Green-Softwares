@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="core green softwares, core green, coregreen, selvaprasanth, 20MER121, web dev project">
-    <meta name="description" content="This site core green softwares is build in the purpose of project only. Do not provide any confidential datas.">
-    <meta name="author" content="Prasanth Sellasamy">
     <title>Core Green</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="./css/index.css">
@@ -14,80 +11,58 @@
 <body>
     <div class="shadow"></div>
     <header>
-        <div class="org">
-            <img src="./assets/svg/logo.svg" alt="Core Green">
-            <p>Core Green</p>
+        <div class="top-bar">
+            <div class="title">
+                <img src="./assets/svg/logo.svg" alt="logo">
+                <h1>Core Green</h1>
+            </div>
+            <div class="hamburger">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </div>
+            <nav>
+                <ul>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#careers">Careers</a>
+                    <a href="#services">Services</a>
+                    <li onclick="verifySession()">My profile</li>
+                </ul>
+            </nav>
         </div>
-        <div class="hamburger">
-            <span class="material-symbols-outlined">
-                menu
-            </span>
-        </div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#career">Careers</a>
-            <a href="#services">Services</a>
-            <li onclick="verifySession()">My Profile</li>
-        </nav>
+        <h1 class="welcome"><span style="--i:1">Core Green,</span> <br> <span style="--i:2">Higher Efficiency,</span> <br> <span style="--i:3">Smarter Applications,</span> <br> <span style="--i:4">Zero Tolerance,</span> <br> <span style="--i:5">We bring best solutions to problems.</span></h1>
     </header>
-    <footer>
-
-        <!-- index page -->
-
-        <div class="index">
-            <h1><span style="--i:1">Core Green,</span><br>
-            <span style="--i:2">Higher Efficiency,</span><br>
-            <span style="--i:3">Smarter Applications,</span><br>
-            <span style="--i:4">Zero Tolerance,</span><br>
-            <span style="--i:5">We bring best solutions to problems.</span></h1>
-        </div>
+    <main>
+        <section id="home" class="who-we-are">
+            <div class="details">
+                <h2>Who we are</h2>
+                <p>Core Green Software Solutions is a dynamic and innovative company dedicated to providing cutting-edge software solutions with a strong emphasis on environmental sustainability. Specializing in developing green technologies and ecofriendly software applications, the company is committed to addressing the challenges of the modern world by offering sustainable IT solutions. With a focus on reducing carbon footprints and promoting environmental responsibility, Core Green Software Solutions aims to empower businesses and organizations to embrace eco-conscious practices while harnessing the power of technology for a greener future.</p>
+            </div>
+            <img src="./assets/office building.jpg" alt="office">
+        </section>
         <hr>
-        <!-- Home page -->
-        
-        <div id="home" class="home">
-            <div class="who-we-are">
-                <h1>Who we are</h1>
-                <p>Core Green Software Solutions is a dynamic and innovative company dedicated to providing cutting-edge software solutions with a strong emphasis on environmental sustainability. Specializing in developing green technologies and eco-friendly software applications, the company is committed to addressing the challenges of the modern world by offering sustainable IT solutions. With a focus on reducing carbon footprints and promoting environmental responsibility, Core Green Software Solutions aims to empower businesses and organizations to embrace eco-conscious practices while harnessing the power of technology for a greener future.</p>
+        <section id="about" class="about-us">
+            <div class="left-side">
+                <h2>About us</h2>
+                <p>Welcome to Core Green Software Solutions, where innovation meets sustainability. Established with a vision to revolutionize the software industry, we take pride in our commitment to developing cutting-edge solutions that not only meet the highest standards of technology but also contribute to a greener and more sustainable future.</p>
+                <button onclick="window.location.href='/aboutus.html'" type="button">View more &#8594;</button>
+                <h2>Our mission</h2>
+                <p>At Core Green Software Solutions, our mission is to provide innovative software solutions that empower businesses while promoting environmental responsibility. We strive to be at the forefront of technological advancements, delivering products that not only meet the demands of today but also address the challenges of tomorrow.</p>
             </div>
-            <div class="org-img">
-                <img src="./assets//office building.jpg" alt="office">
+            <div class="right-side">
+                <h2>What sets us apart</h2>
+                <p><strong>Sustainable development</strong> We are dedicated to incorporating eco-friendly practices in our software development processes, ensuring that our solutions contribute positively to the environment.</p>
+                <p><strong>Innovation</strong> Our team consists of dynamic and forward-thinking professionals who thrive on innovation. We leverage the latest technologies to develop solutions that propel our clients ahead in the digital landscape.</p>
+                <p><strong>Client centric approch</strong> We prioritize our clients' success by understanding their unique needs and challenges. Our solutions are tailored to enhance efficiency, reduce costs, and drive overall business growth.</p>
+                <p><strong>Collaborative culture</strong> We believe in the power of collaboration. Our inclusive and collaborative culture encourages open communication, idea-sharing, and teamwork to deliver exceptional results.</p>
+                <p><strong>Continuous learning</strong> In the ever-evolving world of technology, we embrace a culture of continuous learning. Our team stays ahead of the curve by acquiring new skills and staying updated on the latest industry trends.</p>
             </div>
-        </div>
-
-        <!--About page-->
-
-        <div id="about" class="about">
-            <div class="left">
-                <div class="about-company">
-                    <h1>About us</h1>
-                    <p>Welcome to Core Green Software Solutions, where innovation meets sustainability. Established with a vision to revolutionize the software industry, we take pride in our commitment to developing cutting-edge solutions that not only meet the highest standards of technology but also contribute to a greener and more sustainable future.</p>
-                </div>
-                <button class="about-more" onclick="window.location.href = '/aboutus.html'">View more ></button>
-                <div class="mission">
-                    <h1>Our Mission</h1>
-                    <p>At Core Green Software Solutions, our mission is to provide innovative software solutions that empower businesses while promoting environmental responsibility. We strive to be at the forefront of technological advancements, delivering products that not only meet the demands of today but also address the challenges of tomorrow.</p>
-                </div>
-            </div>
-            <div class="right">
-                <div class="what-sets-us-apart">
-                    <h1>What sets us apart</h1>
-                    <p><b>Sustainable Developement</b>We are dedicated to incorporating eco-friendly practices in our software development processes, ensuring that our solutions contribute positively to the environment.</p>
-                    <p><b>Innovation</b> Our team consists of dynamic and forward-thinking professionals who thrive on innovation. We leverage the latest technologies to develop solutions that propel our clients ahead in the digital landscape.</p>
-                    <p><b>Client-Centric Approach</b>We prioritize our clients' success by understanding their unique needs and challenges. Our solutions are tailored to enhance efficiency, reduce costs, and drive overall business growth.</p>
-                    <p><b>Collaborative Culture</b>We believe in the power of collaboration. Our inclusive and collaborative culture encourages open communication, idea-sharing, and teamwork to deliver exceptional results.</p>
-                    <p><b>Continuous Learning</b> In the ever-evolving world of technology, we embrace a culture of continuous learning. Our team stays ahead of the curve by acquiring new skills and staying updated on the latest industry trends.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Career page -->
-
-        <div id="career" class="career">
-            <div class="expectation">
-                <h1>Careers</h1>
-                <p>We are always looking for a dynamic and skilled professional to join our team at Core Green Software Solutions. As a member of our organisations family, you will play a key role in contributing to the success of our projects and initiatives. The ideal candidate will bring a passion for learning, adaptability, and a strong foundation in relevant skills and technologies. We value collaboration and expect you to work closely with your colleagues to tackle challenges, share insights, and drive innovation. we anticipate that your contributions will positively impact the team's overall success. If you are a motivated individual who thrives in a collaborative and fast-paced environment, we encourage you to apply and be part of our journey as we strive for excellence in all that we do.</p>
-            </div>
+        </section>
+        <hr>
+        <section id="careers" class="careers">
+            <h2>Careers</h2>
+            <p>We are always looking for a dynamic and skilled professional to join our team at Core Green Software Solutions. As a member of our organisations family, you will play a key role in contributing to the success of our projects and initiatives. The ideal candidate will bring a passion for learning, adaptability, and a strong foundation in relevant skills and technologies. We value collaboration and expect you to work closely with your colleagues to tackle challenges, share insights, and drive innovation. we anticipate that your contributions will positively impact the team's overall success. If you are a motivated individual who thrives in a collaborative and fast-paced environment, we encourage you to apply and be part of our journey as we strive for excellence in all that we do.</p>
             <div class="jobs">
                 <table class="job-tile">
                     <caption>Android developer</caption>
@@ -107,9 +82,6 @@
                         <tr>
                             <th>Salary</th>
                             <td>4.5LPA</td>
-                        </tr>
-                        <tr>
-                            <th><button onclick="window.location.href = '/careers.html'" type="button">See more > </button></th>
                         </tr>
                     </tbody>
                 </table>
@@ -132,9 +104,6 @@
                             <th>Salary</th>
                             <td>8LPA</td>
                         </tr>
-                        <tr>
-                            <th><button onclick="window.location.href = '/careers.html'" type="button">See more > </button></th>
-                        </tr>
                     </tbody>
                 </table>
                 <table class="job-tile">
@@ -156,128 +125,135 @@
                             <th>Salary</th>
                             <td>6LPA</td>
                         </tr>
-                        <tr>
-                            <th><button onclick="window.location.href = '/careers.html'" type="button">See more > </button></th>
-                        </tr>
                     </tbody>
                 </table>
             </div>
+            <button onclick="window.location.href='/careers.html'" type="button">Know more &#8594;</button>
+        </section>
+        <hr>
+        <section id="services" class="services">
+            <h2>Our services</h2>
+            <div class="service-container">
+                <div class="service">
+                    <img src="./assets/custom-software-developement.jpg" alt="image">
+                    <div class="service-details">
+                        <p><strong>Custom Software Development</strong> Tailored software solutions designed to meet the specific needs of your business.</p>
+                        <button onclick="window.location.href='/services.html'" type="button">View more &#8594;</button>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="./assets/Mobile-app.jpg" alt="image">
+                    <div class="service-details">
+                        <p><strong>Mobile app Development</strong> Innovative and user-centric mobile applications that elevate your brand.</p>
+                        <button onclick="window.location.href='/services.html#mobile-app-development'" type="button">View more &#8594;</button>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="./assets/website.jpg" alt="image">
+                    <div class="service-details">
+                        <p><strong>Web Development</strong> Responsive and scalable web solutions for a seamless online presence.</p>
+                        <button onclick="window.location.href='/services.html#web-development'" type="button">View more &#8594;</button>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="./assets/green-it.jpg" alt="image">
+                    <div class="service-details">
+                        <p><strong>Green IT solutions</strong> Strategies and consultations to integrate sustainable practices into your IT infrastructure.</p>
+                        <button onclick="window.location.href='/services.html#green-it-solutions'" type="button">View more &#8594;</button>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="./assets/digital transformation.jpg" alt="image">
+                    <div class="service-details">
+                        <p><strong>Digital transformation</strong> Guiding businesses through the process of digital transformation to stay competitive in a rapidly changing landscape.</p>
+                        <button onclick="window.location.href='/services.html#digital-transformation'" type="button">View more &#8594;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="query-form">
+            <h1>Ask your queries here</h1>
+            <form id="user-query" novalidate>
+                <p id="response-message">Thank You! We got your message.</p>
+                <div class="name">
+                    <div class="input">
+                        <input type="text" name="fname" id="fname" autocomplete="off" required>
+                        <label for="fname">Full Name</label>
+                        <div class="line"></div>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="lname" id="lname" autocomplete="off" required>
+                        <label for="lname">Last Name</label>
+                        <div class="line"></div>
+                    </div>
+                </div>
+
+                <div class="contact-details">
+                    <div class="input">
+                        <input type="text" name="email" id="email" autocomplete="off" required>
+                        <label for="email">Email</label>
+                        <div class="line"></div>
+                    </div>
+                    <div class="input">
+                        <input type="number" name="comtact-number" id="contact-number" autocomplete="off" required>
+                        <label for="contact-number">Contact Number</label>
+                        <div class="line"></div>
+                    </div>
+                </div>
+
+                <div class="message">
+                    <div class="text-area-input">
+                        <textarea name="message" id="message" autocomplete="off" required novalidate></textarea>
+                        <label for="message">Message</label>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                <button onclick="sendQuery()" type="button">
+                    <p id="submit-text">Submit</p>
+                    <svg id="load" class="load" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="35"></circle>
+                    </svg>
+                </button>
+            </form>
+        </section>
+    </main>
+    <footer class="site-informations">
+        <div class="org-name">
+            <img src="./assets/svg/logo.svg" alt="Core Green">
+            <p>Core Green</p>
         </div>
-
-        <!--Services page-->
-
-        <div id="services" class="services">
-            <h1>Our Services</h1>
-            <div class="service-group">
-                <div class="service-tile">
-                    <img src="./assets/custom-software-developement.jpg" alt="">
-                    <p><b>Custom Software Development</b>Tailored software solutions designed to meet the specific needs of your business. <br><button onclick="window.location.href = '/services.html'" type="button">Learn more ></button></p>
+        <div class="para-and-social-media">
+            <div class="simple-para">
+                <p><b>Core Green</b> is an GD tech & SD tech incubated software-tech company that focuses on providing personalized IT and software solutions for its customers right from skilled devolopers. And, also helps freshers to upskill themselves by providing wonderful internship opportunities, with the considerable stipend.</p>
+            </div>
+            <div class="social-medias">
+                <div class="facebook">
+                    <img src="./assets/facebook.png" alt="fb">
                 </div>
-                <div class="service-tile">
-                    <img src="./assets/Mobile-app.jpg" alt="">
-                    <p><b>Mobile App Development</b>Innovative and user-centric mobile applications that elevate your brand. <br> <button onclick="window.location.href = '/services.html'" type="button">Learn more ></button></p>
+                <div class="instagram">
+                    <img src="./assets/instagram.png" alt="insta">
                 </div>
-                <div class="service-tile">
-                    <img src="./assets//website.jpg" alt="">
-                    <p><b>Web Development</b>Responsive and scalable web solutions for a seamless online presence. <br> <button onclick="window.location.href = '/services.html'" type="button">Learn more ></button></p>
+                <div class="linkedin">
+                    <img src="./assets/linkedin.png" alt="linkedin">
+                </div> <br>
+                <div class="telegram">
+                    <img src="./assets/telegram.png" alt="tele">
                 </div>
-                <div class="service-tile">
-                    <img src="./assets/green-it.jpg" alt="">
-                    <p><b>Green IT Consulting</b>Strategies and consultations to integrate sustainable practices into your IT infrastructure. <br> <button onclick="window.location.href = '/services.html'" type="button">Learn more ></button></p>
+                <div class="gmail">
+                    <img src="./assets/gmail.png" alt="mail">
                 </div>
-                <div class="service-tile">
-                    <img src="./assets//digital transformation.jpg" alt="">
-                    <p><b>Digital Transformation</b>Guiding businesses through the process of digital transformation to stay competitive in a rapidly changing landscape. <br> <button onclick="window.location.href = '/services.html'" type="button">Learn more ></button></p>
+                <div class="portfolio">
+                    <img src="./assets/logo512.png" alt="portfolio">
                 </div>
             </div>
         </div>
-
-        <!--Site information and more-->
-
-        <div class="site-info">
-            <div class="query-form">
-                <h1>Ask your queries here</h1>
-                <form id="user-query" novalidate>
-                    <p id="response-message">Thank You! We got your message.</p>
-                    <div class="name">
-                        <div class="input">
-                            <input type="text" name="fname" id="fname" autocomplete="off" required>
-                            <label for="fname">Full Name</label>
-                            <div class="line"></div>
-                        </div>
-                        <div class="input">
-                            <input type="text" name="lname" id="lname" autocomplete="off" required>
-                            <label for="lname">Last Name</label>
-                            <div class="line"></div>
-                        </div>
-                    </div>
-
-                    <div class="contact-details">
-                        <div class="input">
-                            <input type="text" name="email" id="email" autocomplete="off" required>
-                            <label for="email">Email</label>
-                            <div class="line"></div>
-                        </div>
-                        <div class="input">
-                            <input type="number" name="comtact-number" id="contact-number" autocomplete="off" required>
-                            <label for="contact-number">Contact Number</label>
-                            <div class="line"></div>
-                        </div>
-                    </div>
-
-                    <div class="message">
-                        <div class="text-area-input">
-                            <textarea name="message" id="message" autocomplete="off" required novalidate></textarea>
-                            <label for="message">Message</label>
-                            <div class="line"></div>
-                        </div>
-                    </div>
-                    <button onclick="sendQuery()" type="button">
-                        <p id="submit-text">Submit</p>
-                        <svg id="load" class="load" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="35"></circle>
-                        </svg>
-                    </button>
-                </form>
-            </div>
-            <div class="site-informations">
-                <div class="org-name">
-                    <img src="./assets/svg/logo.svg" alt="Core Green">
-                    <p>Core Green</p>
-                </div>
-                <div class="para-and-social-media">
-                    <div class="simple-para">
-                        <p><b>Core Green</b> is an GD tech & SD tech incubated software-tech company that focuses on providing personalized IT and software solutions for its customers right from skilled devolopers. And, also helps freshers to upskill themselves by providing wonderful internship opportunities, with the considerable stipend.</p>
-                    </div>
-                    <div class="social-medias">
-                        <div class="facebook">
-                            <img src="./assets/facebook.png" alt="fb">
-                        </div>
-                        <div class="instagram">
-                            <img src="./assets/instagram.png" alt="insta">
-                        </div>
-                        <div class="linkedin">
-                            <img src="./assets/linkedin.png" alt="linkedin">
-                        </div> <br>
-                        <div class="telegram">
-                            <img src="./assets/telegram.png" alt="tele">
-                        </div>
-                        <div class="gmail">
-                            <img src="./assets/gmail.png" alt="mail">
-                        </div>
-                        <div class="portfolio">
-                            <img src="./assets/logo512.png" alt="portfolio">
-                        </div>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <p><span>&#169;</span>Core Green Softwares pvt.ltd.</p>
-                </div>
-                <div class="author">
-                    <p>site designed & maintained by</p>
-                    <p>-Selvaprasanth</p>
-                </div>
-            </div>
+        <div class="copyright">
+            <p><span>&#169;</span>Core Green Softwares pvt.ltd.</p>
+        </div>
+        <div class="author">
+            <p>site designed & maintained by</p>
+            <p>-Selvaprasanth</p>
         </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

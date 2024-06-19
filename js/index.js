@@ -32,6 +32,10 @@ function response(msg,color){
     res_msg.innerText = msg;
     res_msg.style.color = color;
     res_msg.style.visibility = "visible";
+    setTimeout(()=>{
+        userQueryForm.reset();
+        res_msg.style.visibility = "hidden";
+    },[3000]);
 }
 const userQueryForm = document.getElementById("user-query");
 function sendQuery(){
@@ -53,10 +57,6 @@ function sendQuery(){
         success:function(res){
             if(res === "success"){
                 response("Thank You! We got your message.","#008500");
-                setTimeout(()=>{
-                    userQueryForm.reset();
-                    res_msg.style.visibility = "hidden";
-                },[3000]);
             }
             else{
                 response("Something went wrong!","red");
