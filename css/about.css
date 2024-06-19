@@ -192,10 +192,13 @@ section.future img{
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:769px){
     main{
         padding: 0 1.5rem;
     }
+}
+
+@media screen and (max-width:600px) {
     header.about-us h1{
         font-size: 1.25rem;
     }

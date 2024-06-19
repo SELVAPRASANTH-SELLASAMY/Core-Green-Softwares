@@ -36,6 +36,7 @@ img{
 header{
     height: 100vh;
     width: 100%;
+    min-height: 500px;
     background-image: url('/assets/ofc_building.jpg');
     background-position: center;
     background-size: cover;
