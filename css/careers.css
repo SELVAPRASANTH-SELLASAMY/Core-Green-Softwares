@@ -33,7 +33,7 @@ main{
 }
 nav{
     width: 100%;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }
 nav ul{
     display: grid;
@@ -155,7 +155,7 @@ form span{
     color: red;
     font-size: 1.25rem;
 }
-form button{
+button{
     padding: .5rem 1rem;
     border-radius: .5rem;
     width: 8rem;
@@ -166,10 +166,11 @@ form button{
     font-size: 1rem;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    margin: .5rem 0;
+    margin: 1rem 0;
+    margin-top: 1.5rem;
     -webkit-tap-highlight-color: transparent;
 }
-form button:active{
+button:active{
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 section.response-message{
@@ -216,7 +217,7 @@ footer{
     section.why-join-us{
         width: 30rem;
     }
-    form p.warn,input,select,form label,form button,.copyright p,.copyright span{
+    form p.warn,input,select,form label,button,.copyright p,.copyright span{
         font-size: .75rem;
     }
     input,select{

@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    background-color: rgb(239, 247, 255);
+}
+::-webkit-scrollbar{
+    width: .5rem;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 50px;
+    background-color: lightgrey;
+}
+header{
+    height: fit-content;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 1rem 0;
+}
+header h1{
+    font-size: 2rem;
+    text-align: center;
+}
+main{
+    padding: 2rem;
+}
+section{
+    width: 100%;
+    padding: 2rem;
+    background-color: #ffffff;
+    margin: .5rem 0;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: .5rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+section h1{
+    font-size: 1.5rem;
+}
+section h2{
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: .5rem 0;
+}
+section select{
+    font-size: 1rem;
+    font-size: 1rem;
+    padding: .65rem 1rem;
+    border-radius: .25rem;
+    border: .1rem solid #c3c3c3;
+    outline-color: rgb(120, 176, 255);
+    width: 15rem;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+}
+.table-container{
+    overflow: hidden;
+    height: 0;
+    transition: 250ms;
+}
+.show-applicant-details{
+    height: 91.5rem;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+table tr{
+    /* border: .1rem solid blue; */
+}
+table th{
+    /* border: .1rem solid green; */
+    min-width: 15rem;
+    width: 20%;
+    text-align: start;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #000000;
+}
+table td{
+    /* border: .1rem solid green; */
+    padding: 1rem;
+    color: #5a5a5a;
+}
+button{
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    width: 8rem;
+    min-width: fit-content;
+    border: none;
+    background-color: #006266;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    -webkit-tap-highlight-color: transparent;
+    margin-top: .5rem;
+}
+button:active{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.response-field{
+    position: fixed;
+    top: -5rem;
+    right: 1rem;
+    background-color: #ffffff;
+    z-index: 20;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    transition: 250ms;
+    font-size: 1.25rem;
+}
+.loader{
+    height: 100vh;
+    width: 100vw;
+    background-color: #00000079;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: grid;
+    place-content: center;
+    z-index: 15;
+}
+.loader svg{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    animation: rotate 2s linear infinite;
+}
+.loader svg circle{
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: .4rem;
+    stroke-dasharray: 251.76;
+    stroke-dashoffset: 50;
+    stroke-linecap: round;
+}
+@keyframes rotate {
+    From{transform: rotate(0deg);}
+    To{transform: rotate(360deg);}
+}
+
+
+@media screen and (max-width:1120px){
+    section h1{
+        font-size: 1.25rem;
+    }
+    section h2{
+        font-size: 1rem;
+    }
+    section select,button,table{
+        font-size: .75rem;
+    }
+    header h1{
+        font-size: 1.75rem;
+    }
+    section select{
+        width: 10rem;
+        top: 1rem;
+        padding: .5rem .5rem;
+    }
+    table td{
+        padding: .5rem;
+    }
+    table th{
+        min-width: 8rem;
+    }
+    .show-applicant-details{
+        height: 56rem;
+    }
+    .response-field{
+        font-size: 1rem;
+    }
+    .show-navbar{
+        width: 12rem;
+        height: 9.65rem;
+    }
+}
+@media screen and (max-width:769px){
+    main{
+        padding: 1.5rem;
+    }
+    section{
+        padding: 1rem;
+    }
+    section select{
+        width: 8rem;
+        top: 1rem;
+        padding: .35rem .5rem;
+    }
+}
+@media screen and (max-width:426px){
+    main{
+        padding: 1rem .5rem;
+    }
+    section select{
+        width: 7rem;
+    }
+}
+@media screen and (max-width:375px){
+    table th{
+        min-width: 6rem;
+    }
+    table td{
+        white-space: wrap;
+        max-width: 10rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

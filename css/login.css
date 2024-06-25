@@ -11,19 +11,19 @@ html{
 body{
     width: 100%;
     height: 100vh;
-    min-height: fit-content;
+    min-height: 600px;
     display: flex;
 }
 form{
     width: 35rem;
-    height: fit-content;
+    /* height: fit-content; */
     /* background-color: lightblue; */
     display: flex;
     flex-direction: column;
     padding: 2.5rem;
     border-radius: 1rem;
-    max-height: 100vh;
-    overflow-y: auto;
+    /* max-height: 100vh; */
+    /* overflow-y: auto; */
 }
 form::-webkit-scrollbar{
     width: 0;
@@ -165,7 +165,7 @@ form #sign-in-button,form #sign-up-button,form #forgot-password-button{
 }
 .right-side{
     /* background-color: lightblue; */
-    height: 100vh;
+    /* height: 100vh; */
     width: 45%;
     display: grid;
     place-content: center;
@@ -189,7 +189,7 @@ form #sign-in-button,form #sign-up-button,form #forgot-password-button{
     background-image: url('../assets/svg/login_ui_1.svg');
 }
 .left-side{
-    height: 100vh;
+    /* height: 100vh; */
     width: 55%;
     background-image: url('../assets/woman.jpg');
     background-position: center;

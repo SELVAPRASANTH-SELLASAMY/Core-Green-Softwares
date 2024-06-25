@@ -3,256 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Core Green | Profile</title>
+    <title>Candidates Corner</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="./css/profile.css">
     <link rel="icon" href="./assets/svg/logo.svg">
     <script>
-        const verify = document.cookie.includes("user_id") && document.cookie.includes("user");
+        const verify = document.cookie.includes("user");
         if(!verify){
             window.location.replace('login.html');
         }
     </script>
 </head>
 <body>
-    <header>
-        <div class="settings">
-            <img src="./assets/svg/settings.svg" alt="settings" id="settings-button">
-            <div class="settings-options">
-                <li id="change-password-button"><span><img src="./assets/svg/password.svg" alt=""></span>Change password</li>
-                <li onclick="logout()"><span><img src="./assets/svg/logout.svg" alt=""></span>Sign out</li>
-                <li id="delete-account-button"><span><img src="./assets/svg/delete.svg" alt=""></span>Delete account</li>
-            </div>
-        </div>
-        <div class="cover-photo">
-            <div class="canvas">
-                <div class="upload-button">
-                    <img onclick="return setProfilePic()" src="./assets/svg/add_pic.svg" alt="">
-                    <img onclick="return remove_profile_pic()" src="./assets/svg/delete_white.svg" alt="">
+    <header style="display: none;">
+        <section class="background-style">
+            <figure class="profile-picture">
+                <canvas></canvas>
+                <div class="control-buttons">
+                    <img src="./assets/svg/add_pic.svg" alt="add-pic">
+                    <img src="./assets/svg/delete_white.svg" alt="delete-pic">
                 </div>
+            </figure>
+            <div class="navigation">
+                <img src="./assets/svg/settings.svg" alt="settings" class="settings">
+                <nav>
+                    <ul>
+                        <li id="change_password">
+                            <span><img src="./assets/svg/password.svg" alt="password"></span>
+                            Change password
+                        </li>
+                        <li id="logout">
+                            <span><img src="./assets/svg/logout.svg" alt="password"></span>
+                            Sign Out
+                        </li>
+                        <li id="delete_account">
+                            <span><img src="./assets/svg/delete.svg" alt="password"></span>
+                            Delete account
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-        <div class="info">
-            <div class="intro">
-                <p class="user-name" id="user-name">-</p>
-                <p class="designation" id="designation">-</p>
-                <p class="resident">
-                    <span id="span-city">-</span>
-                    <span id="span-state">-</span>
-                    <span id="span-country">-</span>
+        </section>
+        <section id="personal_info" class="user-details">
+            <img id="personal-info-edit-button" src="./assets/svg/edit.svg" alt="edit" class="edit-button">
+            <div class="basic-info">
+                <abbr id="name-abbreviation" title="Selvaprasanth">
+                    <h1 id="fullname" class="name">---</h1>
+                </abbr>
+                <h2 id="designation" class="designation">---</h2>
+                <p id="place" class="residency">---</p>
+            </div>
+            <div class="contact">
+                <p class="email">
+                    <img src="./assets/svg/email.svg" alt="email">
+                    <span id="email">---</span>
+                </p>
+                <p class="mobile-number">
+                    <img src="./assets/svg/contact.svg" alt="email">
+                    <span id="contact_number">9003413727</span>
                 </p>
             </div>
-            <div class="contact-info">
-                <div class="email">
-                    <img src="./assets/svg/email.svg" alt="email">
-                    <p id="email">-</p>
-                </div>
-                <div class="phone">
-                    <img src="./assets/svg/contact.svg" alt="Phone">
-                    <p id="phone-number">-</p>
-                </div>
-            </div>
-            <div class="profile-strength">
-                <svg>
-                    <circle id="profile-strength-circle" cx="6rem" cy="5rem" r="3rem"></circle>
-                    <text x="50%" y="50%" text-anchor="middle"> 
-                        <tspan x="51%" y="38%" id="percent" class="percent">90%</tspan> 
-                        <tspan x="50%" y="50%">profile</tspan> 
+            <div class="profile-completeness-percentage">
+                <svg viewbox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45">
+                    </circle>
+                    <text class="text" text-anchor="middle" dominant-baseline="middle" font-size="12.5" x="50%" y="50%">
+                        <tspan x="52.5" y="40" class="percent">100%</tspan>
+                        <tspan x="50" y="60">Profile</tspan>
                     </text>
                 </svg>
             </div>
+            <div class="edit-personal-info" id="edit_personal_info">
+                <h2>Edit personal details</h2>
+                <form name="edit-personal-information" id="edit-personal-information">
+                    <label for="fullname">Fullname <span class="asterics">*</span></label>
+                    <input placeholder="fullname" type="text" id="fullname" name="fullname" autocomplete="off">
+                    <p id="fullname_warn" class="warn">This field is required!</p>
+                    <label for="designation">Designation <span class="asterics">*</span></label>
+                    <input placeholder="designation" type="text" id="designation" name="designation" autocomplete="off">
+                    <p id="designation_warn" class="warn">This field is required!</p>
+                    <label for="place">Place <span class="asterics">*</span></label>
+                    <input placeholder="Place" type="text" id="place" name="place" autocomplete="off">
+                    <p id="place_warn" class="warn">This field is required!</p>
+                    <label for="email">Email <span class="asterics">*</span></label>
+                    <input placeholder="Email" type="text" id="email" name="email" autocomplete="off">
+                    <p id="email_warn" class="warn">This field is required!</p>
+                    <label for="contact_number">Contact number<span class="asterics">*</span></label>
+                    <input placeholder="Contact number" type="number" id="contact_number" name="contact_number" autocomplete="off">
+                    <p id="contact_number_warn" class="warn">This field is required!</p>
+                    <div class="buttons">
+                        <button onclick="cancelEdit('edit_personal_info')" type="button">Cancel</button>
+                        <button onclick="validateForm('personal_info')" type="button">Save</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <div class="change-password-field" id="change_password_field">
+            <h2>Change password</h2>
+            <form name="change-password_form" id="change_password_form">
+                <div id="page1" class="page">
+                    <label for="current_password">Current password <span class="asterics">*</span></label>
+                    <input placeholder="current password" type="password" id="current_password" name="current_password" autocomplete="off">
+                    <p id="current_password_warn" class="warn">This field is required!</p>
+                </div>
+                <div style="display: none;" id="page2" class="page">
+                    <label for="new_password">New password <span class="asterics">*</span></label>
+                    <input placeholder="new password" type="password" id="new_password" name="new_password" autocomplete="off">
+                    <p id="new_password_warn" class="warn">This field is required!</p>
+                    <label for="confirm_new_password">Confirm new password <span class="asterics">*</span></label>
+                    <input placeholder="confirm new password" type="password" id="confirm_new_password" name="confirm_new_password" autocomplete="off">
+                    <p id="confirm_new_password_warn" class="warn">This field is required!</p>
+                </div>
+                <div class="buttons">
+                    <button id="cancel" type="button">Cancel</button>
+                    <button style="display: none;" id="previous" type="button">Prev</button>
+                    <button id="next" type="button">Next</button>
+                    <button style="display: none;" id="save" type="button">Save</button>
+                </div>
+            </form>
         </div>
-        <div class="control-buttons">
-            <img class="user-info-edit-button" src="./assets/edit.png" alt="edit">
+
+        <div class="delete-account-field" id="delete_account_field">
+            <h2>Delete account</h2>
+            <form name="delete_account_form" id="delete_account_form">
+                <label for="password">Password <span class="asterics">*</span></label>
+                <input placeholder="Enter your password" type="password" id="password" name="password" autocomplete="off">
+                <p id="password_warn" class="warn">This field is required!</p>
+                <div class="buttons">
+                    <button id="cancel" type="button">Cancel</button>
+                    <button id="save" type="button">Save</button>
+                </div>
+            </form>
         </div>
     </header>
-    <main>
-        <div class="personal-info">
-            <div class="heading">
-                <h1>Personal Information</h1>
-                <div class="control-buttons">
-                    <img class="edit-personal-info" src="./assets/edit.png" alt="edit">
-                    <img onclick="ModifyPersonalInfo()" class="save-personal-info" src="./assets/save.png" alt="done">
-                </div>
-            </div>
-            <div class="name-class">
-                <span>Username</span>
-                <p id="name" class="name">-</p>
-            </div>
-            <div class="dob-class">
-                <span>Date of Birth</span>
-                <input disabled type="date" value="" id="dob" name="dob" autocomplete="off">
-            </div>
-            <div class="age-class">
-                <span>Age</span>
-                <p id="age" class="age">-</p>
-            </div>
-            <div class="blood-group-class">
-                <span>Blood Group</span>
-                <select disabled name="blood" id="blood">
-                    <option value="">Select</option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                </select>
-            </div>
-            <div class="marital-status-class">
-                <span>Marital Status</span>
-                <select disabled name="marital-status" id="marital-status">
-                    <option value="">Select</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                </select>
-            </div>
-            <div class="gender-class">
-                <span>Gender</span>
-                <select disabled name="gender" id="gender">
-                    <option value="">Select</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Third gender">Third Gender</option>
-                </select>
-            </div>
-            <div class="languages-class">
-                <span>Languages Known</span>
-                <input disabled type="text" value="" placeholder="-" id="lang" name="lang" autocomplete="off">
-            </div>
-            <div class="religious-class">
-                <span>Religion</span>
-                <input disabled type="text" value="" placeholder="-" id="religion" name="religion" autocomplete="off">
-            </div>
-            <div class="nationality-class">
-                <span>Nationality</span>
-                <select disabled name="nationality" id="nationality">
-                    <option value="">Select</option>
-                </select>
-            </div>
-        </div>
-        <div class="bank-info">
-            <div class="heading">
-                <h1>Bank Information</h1>
-                <div class="control-buttons">
-                    <img class="edit-bank-info" src="./assets/edit.png" alt="edit">
-                    <img onclick="ModifyBankInfo()" class="save-bank-info" src="./assets/save.png" alt="done">
-                </div>
-            </div>
-            <div class="bank-name-class">
-                <span>Bank Name</span>
-                <input disabled type="text" value="" placeholder="-" id="bank-name" name="bank-name" autocomplete="off">
-            </div>
-            <div class="ac-number-class">
-                <span>Account Number</span>
-                <input disabled type="text" value="" placeholder="-" id="ac-number" name="ac-number" autocomplete="off">
-            </div>
-            <div class="branch-class">
-                <span>Branch</span>
-                <input disabled type="text" value="" placeholder="-" id="branch" name="branch" autocomplete="off">
-            </div>
-            <div class="ac-holder-name-class">
-                <span>Account Holder Name</span>
-                <input disabled type="text" value="" placeholder="-" id="ac-holder-name" name="ac-holder-name" autocomplete="off">
-            </div>
-            <div class="ifsc-class">
-                <span>IFSC Code</span>
-                <input disabled type="text" value="" placeholder="-" id="ifsc" name="ifsc" autocomplete="off">
-            </div>
-        </div>
-        <div class="id-proof">
-            <div class="heading">
-                <h1>ID Proof</h1>
-                <div class="control-buttons">
-                    <img class="edit-id-proof" src="./assets/edit.png" alt="edit">
-                    <img onclick="ModifyIdProof()" class="save-id-proof" src="./assets/save.png" alt="done">
-                </div>
-            </div>
-            <div class="aadhaar-class">
-                <span>Aadhaar</span>
-                <input disabled type="text" value="" placeholder="-" id="aadhaar-number" name="aadhaar-number" autocomplete="off">
-            </div>
-            <div class="pan-class">
-                <span>PAN</span>
-                <input disabled type="text" value="" placeholder="-" id="pan" name="pan" autocomplete="off">
-            </div>
-            <div class="passport-class">
-                <span>Passport</span>
-                <input disabled type="text" value="" placeholder="-" id="passport" name="passport" autocomplete="off">
-            </div>
-            <div class="driving-license-class">
-                <span>Driving License</span>
-                <input disabled type="text" value="" placeholder="-" id="driving-license" name="driving-license" autocomplete="off">
-            </div>
-        </div>
-        <div class="change-password">
-            <h1>Change password</h1>
-            <form id="change-password" name="change-password">
-                <div id="page-1" class="page-1">
-                    <label for="current-password">Current password</label>
-                    <input type="password" id="current-password" name="current-password" autocomplete="off">
-                    <p id="current-password-warn">This field is required!</p>
-                </div>
-                <div id="page-2" class="page-2">
-                    <label for="new-password">New password</label>
-                    <input type="password" id="new-password" name="new-password" autocomplete="off">
-                    <p id="new-password-warn">This field is required!</p>
-                    <label for="confirm-new-password">Confirm new password</label>
-                    <input type="password" id="confirm-new-password" name="confirm-new-password" autocomplete="off">
-                    <p id="con-password-warn">This field is required!</p>
-                </div>
-                <button type="button" class="cancel" id="cancel_change_password">CANCEL</button>
-                <button type="button" class="ok" onclick="changePassword()">OK</button>
-            </form>
-        </div>
-        <div id="delete-account" class="delete-account">
-            <h1>Delete account</h1>
-            <form id="delete-my-account" name="delete-my-account">
-                <label for="user-password">Password</label>
-                <input type="password" id="user-password" name="user-password" autocomplete="off">
-                <p id="user-password-warn">This field is required!</p>
-                <button type="button" class="cancel" id="cancel_deletion">CANCEL</button>
-                <button onclick="deletion()" type="button" class="ok">OK</button>
-            </form>
-        </div>
-        <div id="change-user-details-field" class="change-about-user-details">
-            <h1>Change details</h1>
-            <form id="change-about-user-details" name="change-about-user-details">
-                <label for="current-name">Name</label>
-                <input placeholder="Fullname" type="text" id="current-name" name="current-name" autocomplete="off">
-                <p id="current-name-warn">This field is required!</p>
-                <label for="current-desig">Designation</label>
-                <input placeholder="Current designation" type="text" id="current-desig" name="current-desig" autocomplete="off">
-                <p id="current-desig-warn">This field is required!</p>
-                <label for="city">Resident place</label>
-                <div id="place">
-                    <input placeholder="City" type="text" id="city" name="city" autocomplete="off">
-                    <input placeholder="State" type="text" id="state" name="state" autocomplete="off">
-                    <select name="country" id="country" autocomplete="off">
-                        <option value="">Select</option>
-                    </select>
-                </div>
-                <p id="current-place-warn">This field is required!</p>
-                <label for="current-email">Email</label>
-                <input placeholder="Primary email" type="text" id="current-email" name="current-email" autocomplete="off">
-                <p id="current-email-warn">This field is required!</p>
-                <label for="current-contact">Contact</label>
-                <input placeholder="Primary contact number" type="text" id="current-contact" name="current-contact" autocomplete="off">
-                <p id="current-contact-warn">This field is required!</p>
-                <button type="button" class="cancel" id="cancel_change_about-user-details">CANCEL</button>
-                <button type="button" class="ok" onclick="ModifyInfo()">OK</button>
-            </form>
-        </div>
-    </main>
+    <main style="display: none;">
+        <section style="display: none;" id="application_status" class="application-status">
+            <h2>Application status</h2>
+            <p id="status">---</p>
+        </section>
 
-    <div id="server-response" class="server-response">
-        <h1>Success!</h1>
-        <p>Personal Informations updated</p>
+        <section style="display: none;" id="applications" class="apply">
+            <h2>Apply now</h2>
+            <form novalidate id="application-form" class="application-form">
+                <label for="degree">Highest education <span class="asterics">*</span></label>
+                <select name="degree" id="degree" autocomplete="off">
+                    <option value=null>Select</option>
+                    <option value="B.E">B.E</option>
+                    <option value="M.E">M.E</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="BSC">BSC</option>
+                    <option value="MSC">MSC</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MCA">MCA</option>
+                    <option value="BA">BA</option>
+                    <option value="MA">MA</option>
+                    <option value="Other">Other</option>
+                </select>
+                <p id="degree_warn" class="warn">This field is required!</p>
+                <label for="stream">Specialization in highest education <span class="asterics">*</span></label>
+                <input placeholder="Specialization in highest education" type="text" id="stream" name="stream" autocomplete="off">
+                <p id="stream_warn" class="warn">This field is required!</p>
+                <label for="yop">Year of passing <span class="asterics">*</span></label>
+                <input placeholder="Year of passing" type="number" min="1500" max="2025" id="yop" name="yop" autocomplete="off">
+                <p id="yop_warn" class="warn">This field is required!</p>
+                <label for="currently_working">Are you currently working or interning anywhere? <span class="asterics">*</span></label>
+                <select name="currently_working" id="currently_working">
+                    <option value=null>Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <p id="currently_working_warn" class="warn">This field is required!</p>
+                <label for="notice_period">Notice period <span class="asterics">*</span></label>
+                <select name="notice_period" id="notice_period">
+                    <option value=null>Select</option>
+                    <option value="immediate">immediate</option>
+                    <option value="1week">1 Week</option>
+                    <option value="less-than-1month">Less than 1 month</option>
+                    <option value="1month">1 Month</option>
+                </select>
+                <p id="notice_period_warn" class="warn">This field is required!</p>
+                <label for="position">Position applying for <span class="asterics">*</span></label>
+                <!-- <input disabled value="Android developer" placeholder="Position applying for" type="text" id="position" name="position" autocomplete="off"> -->
+                <select name="position" id="position">
+                    <option value=null>Select</option>
+                    <option value="android_developer">Android developer</option>
+                    <option value="web_developer">Web developer</option>
+                    <option value="associate_software_engineer">Associate Software Engineer</option>
+                </select>
+                <p id="position_warn" class="warn">This field is required!</p>
+                <button onclick="validateForm('applications')" type="button">Apply</button>
+            </form>
+        </section>
+
+        <section style="display: none;" id="personal_details" class="personal-details">
+            <h2>Personal details</h2>
+            <img src="./assets/svg/edit.svg" alt="edit" class="edit-button">
+            <table>
+                <tr>
+                    <th>Username</th>
+                    <td>
+                        <p id="username">---</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td>
+                        <input disabled type="date" autocomplete="off" id="dob" name="dob">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>
+                        <p>---</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Blood group</th>
+                    <td>
+                        <select disabled name="blood-group" id="blood_group">
+                            <option value=null>Select</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Marital Status</th>
+                    <td>
+                        <select disabled name="marital-status" id="marital_status">
+                            <option value=null>Select</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>
+                        <select disabled name="gender" id="gender">
+                            <option value=null>Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="third-gender">Third Gender</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Languages Known</th>
+                    <td>
+                        <input disabled type="text" id="languages_known" name="languages-known" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Religion</th>
+                    <td>
+                        <input disabled type="text" id="religion" name="religion" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>nationality</th>
+                    <td>
+                        <select disabled name="nationality" id="nationality">
+                            <option value=null>Select</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button onclick="sendToServer('personal_details')" type="button">Save</button>
+        </section>
+
+        <section style="display: none;" id="bank_id_details" class="bank&id-details">
+            <img src="./assets/svg/edit.svg" alt="edit" class="edit-button">
+            <h2>Bank & Identity details</h2>
+            <table>
+                <tr>
+                    <th>Bank name</th>
+                    <td>
+                        <input disabled type="text" id="bank_name" name="bank_name" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Account number</th>
+                    <td>
+                        <input disabled type="text" id="account_number" name="account-number" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Branch</th>
+                    <td>
+                        <input disabled type="text" id="branch" name="branch" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Ac holder name</th>
+                    <td>
+                        <input disabled type="text" id="ac_holder_name" name="ac_holder_name" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>IFSC code</th>
+                    <td>
+                        <input disabled type="text" id="ifsc" name="ifsc" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Aadhaar</th>
+                    <td>
+                        <input disabled type="text" id="aadhaar" name="aadhaar" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>PAN</th>
+                    <td>
+                        <input disabled type="text" id="pan" name="pan" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Passport</th>
+                    <td>
+                        <input disabled type="text" id="passport" name="passport" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Driving licence</th>
+                    <td>
+                        <input disabled type="text" id="driving_licence" name="driving_licence" autocomplete="off">
+                    </td>
+                </tr>
+            </table>
+            <button onclick="sendToServer('bank_id_details')" type="button">Save</button>
+        </section>
+
+        <section style="display: none;" id="academic_details" class="academic-details">
+            <img src="./assets/svg/edit.svg" alt="edit" class="edit-button">
+            <h2>Academic details</h2>
+            <table>
+                <tr>
+                    <th>Highest degree</th>
+                    <td>
+                        <p id="degree">---</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Specialization in highest degree</th>
+                    <td>
+                        <p id="stream">---</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Percentage in highest degree</th>
+                    <td>
+                        <input disabled type="number" id="degree_percent" name="degree-percent" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Highest degree College</th>
+                    <td>
+                        <input disabled type="text" id="highest_degree_college" name="highest-degree-college" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Year of completion of degree</th>
+                    <td>
+                        <input disabled type="number" id="yop" name="yop" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>HSC/diploma percentage</th>
+                    <td>
+                        <input disabled type="number" id="hsc_percent" name="hsc-percent" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>SSLC percentage</th>
+                    <td>
+                        <input disabled type="number" id="sslc_percent" name="sslc-percent" autocomplete="off">
+                    </td>
+                </tr>
+            </table>
+            <button onclick="sendToServer('academic_details')" type="button">Save</button>
+        </section>
+
+        <section style="display: none;" id="experience_details" class="experience-details">
+            <img src="./assets/svg/edit.svg" alt="edit" class="edit-button">
+            <h2>Work Experience</h2>
+            <table>
+                <tr>
+                    <th>Experience in years</th>
+                    <td>
+                        <select disabled name="experience" id="experience">
+                            <option value=null>Select</option>
+                            <option value="fresher">Fresher</option>
+                            <option value="less-than-1">&#60; 1 year</option>
+                            <option value="1-2">1 - 2 years</option>
+                            <option value="2-3">2 - 3 years</option>
+                            <option value="3-4">3 - 4 years</option>
+                            <option value="4-5">4 - 5 years</option>
+                            <option value="more-than-5">&#62; 5 years</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Previous company name</th>
+                    <td>
+                        <input disabled type="text" name="company-name" id="company_name" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Position worked in</th>
+                    <td>
+                        <input disabled type="text" name="position-worked" id="position_worked" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Current CTC/A</th>
+                    <td>
+                        <input disabled type="text" name="current-ctc" id="current_ctc" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Expected CTC/A</th>
+                    <td>
+                        <input disabled type="text" name="expected-ctc" id="expected_ctc" autocomplete="off">
+                    </td>
+                </tr>
+            </table>
+            <button onclick="sendToServer('experience_details')" type="button">Save</button>
+        </section>
+
+    </main>
+    <div id="response_field" class="response-field">
+        <p>&#9989; Data's Saved successfully!</p>
     </div>
-    <div id="spinner" class="spinner">
-        <svg>
-            <circle cx="50%" cy="50%" r="1.25rem"></circle>
+    <div id="loader" class="loader">
+        <svg viewbox="0 0 100 100">
+            <circle cx="50" cy="50" r="40"></circle>
         </svg>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
