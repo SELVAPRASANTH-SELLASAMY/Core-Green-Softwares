@@ -15,13 +15,13 @@
     </script>
 </head>
 <body>
-    <header style="display: none;">
+    <header style="display: block;">
         <section class="background-style">
             <figure class="profile-picture">
                 <canvas></canvas>
                 <div class="control-buttons">
-                    <img src="./assets/svg/add_pic.svg" alt="add-pic">
-                    <img src="./assets/svg/delete_white.svg" alt="delete-pic">
+                    <img onclick="uploadpic()" src="./assets/svg/add_pic.svg" alt="add-pic">
+                    <img onclick="deletepic()" src="./assets/svg/delete_white.svg" alt="delete-pic">
                 </div>
             </figure>
             <div class="navigation">

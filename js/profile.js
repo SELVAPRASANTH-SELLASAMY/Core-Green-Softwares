@@ -122,7 +122,6 @@ forms.forEach((formName)=>{
     });
 });
 
-// getDomain
 function getConfig(key){
     return new Promise((resolve,reject)=>{
         $.getJSON("config.json",function(url){
@@ -135,7 +134,6 @@ function getConfig(key){
 }
 
 fetchData();
-// console.log(changePasswordField.querySelector('input#current_password'));
 async function fetchData(request = "all"){
     console.log("Request => ",request);
     const username = await getCookie("user");
@@ -172,7 +170,6 @@ async function fetchData(request = "all"){
                 if(parsed['password_verification']){
                     togglepageVisibility(changePasswordFieldPages[1],changePasswordFieldPages[0]);
                     toggleButtonVisibility(['previous','save']);
-                    // passwordVerification
                 }
             }
             else if(request === "accountDeleteVerification"){
@@ -192,9 +189,8 @@ async function fetchData(request = "all"){
 }
 
 function populateData(res){
-    // const sections = [document.getElementById('personal_info'),document.getElementById('personal_details'),document.getElementById('bank_id_details'),document.getElementById('academic_details'),document.getElementById('experience_details'),document.getElementById('edit_personal_info'),document.getElementById('application_status')];
     var sections = [document.getElementById('personal_info'),document.getElementById('edit_personal_info')];
-    const application_stat = res.status; //FIXME: res.status
+    const application_stat = res.status;
     console.log(application_stat);
     switch(application_stat){
         case "offered":
@@ -437,6 +433,62 @@ async function deleteAccount(){
             }
             respond("&#10060; Something went wrong!");
             return;
+        },
+        error:function(error){
+            respond("&#10060; Something went wrong!");
+            console.log(error);
+        }
+    });
+}
+
+function uploadpic(){
+    const imageInput = document.createElement('input');
+    imageInput.type = 'file';
+    imageInput.accept = 'image/*';
+    imageInput.id = "profile_pic";
+    imageInput.onchange = async(e) =>{
+        var formData = new FormData();
+        formData.append('profile_pic',e.target.files[0]);
+        const user = await getCookie('user');
+        formData.append('username',user);
+        $.ajax({
+            method:"POST",
+            data:formData,
+            contentType:false,
+            processData:false,
+            url:await getConfig('domain')+"php/profile.php",
+            success:function(res){
+                if(res === "profile picture set!"){
+                    respond("&#9989; Profile picture set!");
+                }
+                else{
+                    respond("&#10060; Something went wrong");
+                    console.log(res);
+                }
+            },
+            error:function(error){
+                respond("&#10060; Something went wrong!");
+                console.log(error);
+            }
+        });
+    };
+    imageInput.click();
+}
+
+async function deletepic(){
+    const username = await getCookie("user");
+    $.ajax({
+        method:"POST",
+        url:await getConfig('domain')+"php/profile.php",
+        data:{username:username,deletepic:true},
+        success:function(res){
+            if(res === "pic deleted"){
+                respond("&#9989; Profile picture deleted!");
+            }
+            else{
+                respond("&#10060; Something went wrong!");
+                console.log(res);
+            }
         },
         error:function(error){
             respond("&#10060; Something went wrong!");
