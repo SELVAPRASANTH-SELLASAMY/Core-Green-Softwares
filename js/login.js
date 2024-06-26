@@ -53,10 +53,16 @@ var userCredentials = {
     password : ''
 }
 
-var domain;
-$.getJSON("config.json",function(url){
-    domain = url.domain;
-})
+function getConfig(key){
+    return new Promise((resolve,reject)=>{
+        $.getJSON("config.json",function(url){
+            if(url && url[key]) resolve(url[key]);
+            else reject('Domain not found');
+        }).fail(function(){
+            reject("Couldn't load config.json");
+        });
+    });
+}
 
 function validateLoginForm(){
     uname_warn.innerText = "This field is required!";
@@ -69,8 +75,8 @@ function validateLoginForm(){
     }
     return true;
 }
-function encrypt(val){
-    const encrypted_value = CryptoJS.AES.encrypt(val,"TomRiddle@9003413727_21-07-03").toString();
+async function encrypt(val){
+    const encrypted_value = CryptoJS.AES.encrypt(val,await getConfig('secret')).toString();
     return encrypted_value;
 }
 function login(){
@@ -78,12 +84,12 @@ function login(){
     userCredentials.username = username.value;
     userCredentials.password = password.value;
     if(validateLoginForm()){
-        $(document).ready(function(){
+        $(document).ready(async function(){
             $.ajax({
                 method:"POST",
-                url: domain+"php/login.php",
+                url:await getConfig('domain')+"php/login.php",
                 data:userCredentials,
-                success:function(res){
+                success:async function(res){
                     if(res === "Invalid password"){
                         pw_warn.innerText = "Invalid password!";
                         pw_warn.style.visibility = 'visible';
@@ -100,8 +106,15 @@ function login(){
                         const date = new Date();
                         date.setTime(date.getTime()+(1*60*60*1000));
                         const expires = "expires="+date.toUTCString();
-                        document.cookie = ("user="+encrypt(userCredentials.username)+";"+expires+";path=/");
-                        document.cookie = ("user_id="+encrypt(res)+";"+expires+";path=/");
+                        var cookieName = "user";
+                        if(userCredentials.username === await getConfig('admin')){cookieName = "admin"};
+                        const encryptedName = await encrypt(userCredentials.username);
+                        document.cookie = (`${cookieName}=`+encryptedName+";"+expires+";path=/");
+                        if(userCredentials.username === await getConfig('admin')){
+                            window.location.replace('/adminpanel.html');
+                            window.history.replaceState(null,null,'/adminpanel.html');
+                            return;
+                        }
                         window.location.replace('/profile.html');
                         window.history.replaceState(null,null,'/profile.html');
                     }
@@ -230,11 +243,11 @@ function goToPage(pagenumber){
 
 function sendToServer(){
     loading(true);
-    $(document).ready(function(){
+    $(document).ready(async function(){
         $.ajax({
             method:"POST",
             data: userInput,
-            url: domain+"php/register.php",
+            url:await getConfig('domain')+"php/register.php",
             success:function(res){
                 if(res === "Username already exists!"){
                     username_warn.innerHTML = res;

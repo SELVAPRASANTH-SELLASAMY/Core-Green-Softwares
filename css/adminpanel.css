@@ -31,6 +31,59 @@ header h1{
     font-size: 2rem;
     text-align: center;
 }
+img.settings{
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    transition: 250ms;
+    align-self: flex-end;
+    margin-bottom: .5rem;
+}
+.navigation{
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+.rotate-settings-icon{
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+nav{
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    transition: 250ms;
+    background-color: #ffffff;
+}
+.show-navbar{
+    height: 3.35rem;
+    width: 10rem;
+}
+nav ul li{
+    list-style: none;
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+nav ul li:hover{
+    background-color: rgb(237, 237, 237);
+}
+nav ul li img{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: .4rem;
+}
+
 main{
     padding: 2rem;
 }
@@ -149,6 +202,9 @@ button:active{
     stroke-dashoffset: 50;
     stroke-linecap: round;
 }
+main .noApplications{
+    background-color: green;
+}
 @keyframes rotate {
     From{transform: rotate(0deg);}
     To{transform: rotate(360deg);}
@@ -156,13 +212,16 @@ button:active{
 
 
 @media screen and (max-width:1120px){
+    .navigation{
+        top: 1.25rem;
+    }
     section h1{
         font-size: 1.25rem;
     }
     section h2{
         font-size: 1rem;
     }
-    section select,button,table{
+    section select,button,table,nav ul li{
         font-size: .75rem;
     }
     header h1{
@@ -186,8 +245,8 @@ button:active{
         font-size: 1rem;
     }
     .show-navbar{
-        width: 12rem;
-        height: 9.65rem;
+        width: 10rem;
+        height: 3.25rem;
     }
 }
 @media screen and (max-width:769px){
@@ -201,6 +260,15 @@ button:active{
         width: 8rem;
         top: 1rem;
         padding: .35rem .5rem;
+    }
+}
+@media screen and (max-width:600px){
+    header h1{
+        font-size: 1.25rem;
+    }
+    .navigation{
+        top: 1rem;
+        right: 1rem;
     }
 }
 @media screen and (max-width:426px){

@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
     if($query -> execute()){
         $response = $query -> get_result();
         if($response -> num_rows <= 0){
-            return false;
+            die("No applications found!");
         }
         while($row = $response->fetch_assoc()){
             unset($row['password']);

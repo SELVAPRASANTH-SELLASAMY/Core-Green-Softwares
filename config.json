@@ -1,4 +1,5 @@
 {
     "domain":"http://localhost/coregreen/",
-    "secret":"TomRiddle@9003413727_21-07-03"
+    "secret":"TomRiddle@9003413727_21-07-03",
+    "admin":"admin@cgs.com"
 }

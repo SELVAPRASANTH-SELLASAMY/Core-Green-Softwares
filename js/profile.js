@@ -383,7 +383,6 @@ function passwordValidation(password){
 }
 function logout(){
     document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "user_id=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     window.location.reload();
 }
 async function deleteAccount(){
@@ -400,7 +399,7 @@ async function deleteAccount(){
             if(res){
                 respond("&#9989; Account deleted successfully!");
                 deleteAccountField.classList.remove('display-edit-field');
-                logout();
+                setTimeout(()=>{logout();},[3000]);
                 return;
             }
             respond("&#10060; Something went wrong!");

@@ -19,10 +19,12 @@ $.getJSON("config.json",function(url){
     domain = url.domain;
 })
 
-const verify = document.cookie.includes("user") && document.cookie.includes("user_id");
 function verifySession(){
-    if(verify){
+    if(document.cookie.includes("user")){
         return window.location.href = '/profile.html';
+    }
+    else if(document.cookie.includes("admin")){
+        return window.location.href = '/adminpanel.html';
     }
     return window.location.href = '/login.html';
 }

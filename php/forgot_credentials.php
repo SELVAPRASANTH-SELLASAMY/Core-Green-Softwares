@@ -86,14 +86,14 @@ function verifyOTP($username,$otp){
             while($row = $result -> fetch_assoc()){
                 if($row['OTP'] === $otp){
                     $verify -> close();
-                    return "verification success";
+                    die("verification success");
                 }
             }
-            return "Invalid OTP";
+            die("Invalid OTP");
         }
     }
     $verify -> close();
-    return "verification failed";
+    die("verification failed");
 }
 
 function Checklimit($user){
@@ -104,16 +104,16 @@ function Checklimit($user){
         $result = $count_otp -> get_result();
         $row = $result -> fetch_assoc();
         if($row['count'] >= 5){
-            return "max limit exeeded";
+            die("max limit exeeded");
         }
-        return "proceed";
+        die("proceed");
     }
-    return "couldn't verify";
+    die("couldn't verify");
 }
 
 function createOTP(){
     $code = substr(uniqid(),-5);
-    return $code;
+    die($code);
 }
 
 function clearExpiredOTP(){
