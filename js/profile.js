@@ -171,6 +171,15 @@ async function fetchData(request = "all"){
     });
 }
 function populateData(res){
+    if(res['profile_pic']){
+        const canv = document.getElementById('profile_pic');
+        const context = canv.getContext('2d');
+        var img = new Image();
+        img.src = res['profile_pic'];
+        img.onload = function(){
+            context.drawImage(img, 0, -12.5, 300, 175);
+        };
+    }
     var sections = [document.getElementById('personal_info'),document.getElementById('edit_personal_info')];
     const application_stat = res.status;
     switch(application_stat){
@@ -413,6 +422,10 @@ function uploadpic(){
         formData.append('profile_pic',e.target.files[0]);
         const user = await getCookie('user');
         formData.append('username',user);
+        var confirm = window.confirm("Are you sure want change profile picture?");
+        if(!confirm){
+            return;
+        }
         $.ajax({
             method:"POST",
             data:formData,
@@ -437,6 +450,10 @@ function uploadpic(){
     imageInput.click();
 }
 async function deletepic(){
+    var confirm = window.confirm("Are you sure want delete this picture?");
+    if(!confirm){
+        return;
+    }
     const username = await getCookie("user");
     $.ajax({
         method:"POST",

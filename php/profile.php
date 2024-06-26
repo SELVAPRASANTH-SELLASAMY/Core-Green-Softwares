@@ -106,9 +106,7 @@ function deleteAccount($connection,$user){
     if($query -> execute()){
         return true;
     }
-    else{
-        return false;
-    }
+    return false;
     $query -> close();
 }
 function removePic($connection,$username){
@@ -121,6 +119,10 @@ function removePic($connection,$username){
             if($row['profile_pic']){
                 if(file_exists($row['profile_pic'])){
                     if(unlink($row['profile_pic'])){
+                        $updatePath = $connection -> prepare("UPDATE personal_info SET profile_pic = ? WHERE username = ?");
+                        $setnull = Null;
+                        $updatePath -> bind_param("ss",$setnull,$username);
+                        $updatePath -> execute();
                         echo "pic deleted";
                     }
                     else{
