@@ -4,16 +4,13 @@ settings_button.addEventListener('click',()=>{
     settings_button.classList.toggle('rotate-settings-icon');
     navbar.classList.toggle('show-navbar');
 });
-
 const personal_info_edit_button = document.getElementById('personal-info-edit-button');
 const personal_info_edit_field = document.querySelector('#edit_personal_info');
 personal_info_edit_button.addEventListener('click',()=>{
     personal_info_edit_field.classList.add('display-edit-field');
 });
-
 const changePasswordField = document.getElementById('change_password_field');
 const changePasswordFieldPages = changePasswordField.querySelectorAll('.page');
-console.log(changePasswordFieldPages);
 const changePasswordFieldButtons = changePasswordField.querySelectorAll('button');
 const changePasswordFieldWarnings = changePasswordField.querySelectorAll('.warn');
 changePasswordFieldButtons.forEach((changePasswordFieldButton)=>{
@@ -37,10 +34,8 @@ changePasswordFieldButtons.forEach((changePasswordFieldButton)=>{
         }
     });
 });
-
 const deleteAccountField = document.getElementById('delete_account_field');
 const deleteAccountFieldButtons = deleteAccountField.querySelectorAll('button');
-console.log(deleteAccountFieldButtons);
 deleteAccountFieldButtons.forEach((deleteAccountFieldButton)=>{
     deleteAccountFieldButton.addEventListener('click',()=>{
         switch(deleteAccountFieldButton.id){
@@ -54,7 +49,6 @@ deleteAccountFieldButtons.forEach((deleteAccountFieldButton)=>{
         }
     });
 });
-
 const navButtons = document.querySelectorAll('nav li');
 navButtons.forEach((navButton)=>{
     navButton.addEventListener('click',()=>{
@@ -76,12 +70,10 @@ navButtons.forEach((navButton)=>{
         }
     });
 });
-
 function togglepageVisibility(pageToShow,pageToHide){
     pageToHide.style.display = 'none';
     pageToShow.style.display = 'block';
 }
-
 function toggleButtonVisibility([...buttonIds]){
     changePasswordFieldButtons.forEach((changePasswordFieldButton)=>{
         changePasswordFieldButton.style.display = 'none';
@@ -90,16 +82,13 @@ function toggleButtonVisibility([...buttonIds]){
         changePasswordField.querySelector(`button#${buttonId}`).style.display = 'block';
     });
 }
-
 function cancelEdit(sectionId){
     const form = document.querySelector(`#${sectionId} > form`);
     form.reset();
     if(sectionId === "edit_personal_info"){fetchData()};
     personal_info_edit_field.classList.remove('display-edit-field');
 }
-
 const detail_sections = [document.getElementById('personal_details'),document.getElementById('bank_id_details'),document.getElementById('academic_details'),document.getElementById('experience_details')];
-
 detail_sections.forEach((section) => {
     section.querySelector('.edit-button').addEventListener('click',()=>{
         const fields = [section.querySelectorAll('input'),section.querySelectorAll('select')];
@@ -111,7 +100,6 @@ detail_sections.forEach((section) => {
         section.querySelector('button').classList.toggle('display-save-button');
     });
 });
-
 const forms = document.querySelectorAll('form');
 forms.forEach((formName)=>{
     formName.addEventListener('reset',()=>{
@@ -121,7 +109,6 @@ forms.forEach((formName)=>{
         });
     });
 });
-
 function getConfig(key){
     return new Promise((resolve,reject)=>{
         $.getJSON("config.json",function(url){
@@ -132,10 +119,8 @@ function getConfig(key){
         });
     });
 }
-
 fetchData();
 async function fetchData(request = "all"){
-    console.log("Request => ",request);
     const username = await getCookie("user");
     loading(true);
     var data = {username:username};
@@ -145,7 +130,6 @@ async function fetchData(request = "all"){
     else if(request === "accountDeleteVerification"){
         data['password'] = deleteAccountField.querySelector('input#password').value;
     }
-    console.log(data);
     $.ajax({
         method:"GET",
         url:await getConfig('domain')+"php/profile.php",
@@ -166,7 +150,6 @@ async function fetchData(request = "all"){
             else if(request === "password_verification"){
                 changePasswordFieldWarnings[0].innerText = !parsed['password_verification'] ? 'Invalid password' : 'This field is required!';
                 changePasswordFieldWarnings[0].style.visibility = !parsed['password_verification'] ? 'visible' : 'hidden';
-                console.log(parsed['password_verification']);
                 if(parsed['password_verification']){
                     togglepageVisibility(changePasswordFieldPages[1],changePasswordFieldPages[0]);
                     toggleButtonVisibility(['previous','save']);
@@ -181,17 +164,15 @@ async function fetchData(request = "all"){
             }
         },
         error:function(error){
-            console.log(error);
+            console.error(error);
             respond("&#10060; Something went wrong!");
             loading(false);
         }
     });
 }
-
 function populateData(res){
     var sections = [document.getElementById('personal_info'),document.getElementById('edit_personal_info')];
     const application_stat = res.status;
-    console.log(application_stat);
     switch(application_stat){
         case "offered":
             sections.push(document.getElementById('bank_id_details'));
@@ -217,7 +198,6 @@ function populateData(res){
     });
     displaySections(sections);
 }
-
 async function sendToServer(SectionId){
     var confirm = window.confirm("Are you sure want to save changes?");
     if(!confirm){
@@ -226,7 +206,6 @@ async function sendToServer(SectionId){
     loading(true);
     var data = {};
     const section = document.getElementById(SectionId);
-    console.log(section);
     const fields = [section.querySelectorAll('input'),section.querySelectorAll('select')];
     fields.forEach((field)=>{
         field.forEach((element)=>{
@@ -250,10 +229,7 @@ async function sendToServer(SectionId){
     }
     data["table"] = SectionId === "page2" ? "personal_info" : SectionId;
     data["request"] = "insert";
-    data["username"] = await getCookie("user"); //#TODO: This value should got from cookie
-    console.log("Username = "+data['username']);
-    console.log(data);
-    // data["id"] = 1; //#TODO: This value also should got from cookie
+    data["username"] = await getCookie("user");
     $.ajax({
         method:"POST",
         url:await getConfig('domain')+"php/profile.php",
@@ -267,25 +243,23 @@ async function sendToServer(SectionId){
             }
             else{
                 respond("&#10060; Something went wrong!");
-                console.log(res);
+                console.warn(res);
             }
             loading(false);
         },
         error:function(error){
-            console.log(error);
+            console.error(error);
             respond("&#10060; Something went wrong!");
             loading(false);
         }
     });
     data = {}; //At the end of request data should become empty
 }
-
 async function decrypt(value){
     const secret = await getConfig('secret');
     const decrypted_value = CryptoJS.AES.decrypt(value,secret).toString(CryptoJS.enc.Utf8);
     return decrypted_value;
 }
-
 async function getCookie(cookie_name){
     const decode = decodeURIComponent(document.cookie);
     const cookieArray = decode.split(";");
@@ -299,7 +273,6 @@ async function getCookie(cookie_name){
     }
     return null;
 }
-
 function fetchCountries(){
     $.ajax({
         method:"GET",
@@ -314,19 +287,16 @@ function fetchCountries(){
             });
         },
         error:function(error){
-            console.log(error);
+            console.error(error);
         }
     });
 }
 fetchCountries();
-
 function displaySections(sections){
-    console.log(sections);
     sections.forEach((section)=>{
         section.style.display = '';
     });
 }
-
 const response_field = document.getElementById('response_field');
 function respond(msg){
     response_field.innerHTML = `<p>${msg}</p>`;
@@ -335,12 +305,10 @@ function respond(msg){
         response_field.style.top = "-5rem";
     },[5000]);
 }
-
 const loader = document.getElementById('loader');
 function loading(load){
     loader.style.display = load ? 'grid' : 'none';
 }
-
 function validateForm(SectionId){
     const section = document.getElementById(SectionId);
     const fields = [section.querySelectorAll('input'),section.querySelectorAll('select')];
@@ -355,7 +323,6 @@ function validateForm(SectionId){
         sendToServer(SectionId);
     }
 }
-
 function validateInput(element){
     var criteria;
     if(element.id === "email"){
@@ -371,7 +338,6 @@ function validateInput(element){
     document.getElementById(`${element.id}_warn`).innerText = `Invalid ${element.id}!`;
     return false;
 }
-
 function passwordVerification(password1,password2){
     if(password2 === ''){
         return "This field is required!";
@@ -381,7 +347,6 @@ function passwordVerification(password1,password2){
     }
     return "Passwords doesn't match!";
 }
-
 function passwordValidation(password){
     if(password.length < 1){
         return "This field is required!";
@@ -407,13 +372,11 @@ function passwordValidation(password){
     }
     return "Password length must be greater than 5!";
 }
-
 function logout(){
     document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "user_id=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     window.location.reload();
 }
-
 async function deleteAccount(){
     var confirm = window.confirm("Are you sure want delete account?");
     if(!confirm){
@@ -436,11 +399,10 @@ async function deleteAccount(){
         },
         error:function(error){
             respond("&#10060; Something went wrong!");
-            console.log(error);
+            console.error(error);
         }
     });
 }
-
 function uploadpic(){
     const imageInput = document.createElement('input');
     imageInput.type = 'file';
@@ -463,18 +425,17 @@ function uploadpic(){
                 }
                 else{
                     respond("&#10060; Something went wrong");
-                    console.log(res);
+                    console.warn(res);
                 }
             },
             error:function(error){
                 respond("&#10060; Something went wrong!");
-                console.log(error);
+                console.error(error);
             }
         });
     };
     imageInput.click();
 }
-
 async function deletepic(){
     const username = await getCookie("user");
     $.ajax({
@@ -487,12 +448,12 @@ async function deletepic(){
             }
             else{
                 respond("&#10060; Something went wrong!");
-                console.log(res);
+                console.warn(res);
             }
         },
         error:function(error){
             respond("&#10060; Something went wrong!");
-            console.log(error);
+            console.error(error);
         }
     });
 }
