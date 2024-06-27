@@ -60,6 +60,7 @@ function getConfig(key){
             else reject('Domain not found');
         }).fail(function(){
             reject("Couldn't load config.json");
+            loading(false);
         });
     });
 }

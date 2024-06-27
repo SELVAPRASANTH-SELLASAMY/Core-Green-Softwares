@@ -8,6 +8,6 @@ create table if not exists applications(
     yop year,
     currently_working varchar(5),
     notice_period varchar(20),
-    position varchar(50),
+    position varchar(50) DEFAULT "applied",
     status varchar(15)
 );

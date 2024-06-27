@@ -48,7 +48,7 @@ else if($_SERVER['REQUEST_METHOD'] === "POST" && isset($_FILES['profile_pic'])){
     $username = $_POST['username'];
     $profilePic = $_FILES['profile_pic'];
     $uploadDir = '../profile_pictures/';
-    if(!$uploadDir){
+    if(!is_dir($uploadDir)){
         mkdir($uploadDir,0755,true);
     }
     $filename = uniqid().'_'.str_replace(' ','',$profilePic['name']);
