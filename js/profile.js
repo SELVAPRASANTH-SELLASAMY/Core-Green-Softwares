@@ -191,8 +191,10 @@ function populateData(res){
             sections.push(document.getElementById('experience_details'));
         case "applied":
             sections.push(document.getElementById('application_status'));
+            document.getElementById('applications').style.display = "none";
             break;
         case null:
+        case "rejected":
             sections.push(document.getElementById('applications'));
             break;
         default:
@@ -200,7 +202,7 @@ function populateData(res){
     }
     sections.forEach((section)=>{
         const keys = Object.keys(res);
-        keys.forEach((key)=>{
+        section && keys.forEach((key)=>{
             const element = section.querySelector("#"+key);
             element ? element.tagName === "H1" || element.tagName === "H2" || element.tagName === "P" || element.tagName === "SPAN" ? element.innerText = res[key] ? res[key] : "---" : element.value = res[key] : null;
         });
@@ -236,6 +238,7 @@ async function sendToServer(SectionId){
         delete data['new_password'];
         delete data['confirm_new_password'];
     }
+    if(SectionId === "academic_details"){delete data['yop'];}
     data["table"] = SectionId === "page2" ? "personal_info" : SectionId;
     data["request"] = "insert";
     data["username"] = await getCookie("user");
@@ -303,7 +306,7 @@ function fetchCountries(){
 fetchCountries();
 function displaySections(sections){
     sections.forEach((section)=>{
-        section.style.display = '';
+        section ? section.style.display = '' : null;
     });
 }
 const response_field = document.getElementById('response_field');

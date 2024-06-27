@@ -103,8 +103,8 @@ $connection -> close();
 function deleteAccount($connection,$user){
     $query = $connection -> prepare("DELETE pi,pd,bd,ad,ed,a from personal_info pi LEFT JOIN personal_details pd ON pi.username = pd.username LEFT JOIN bank_id_details bd ON pi.username = bd.username LEFT JOIN academic_details ad ON pi.username = ad.username LEFT JOIN experience_details ed ON pi.username = ed.username LEFT JOIN applications a ON pi.username = a.username WHERE(pi.username = ?)");
     $query -> bind_param("s",$user);
+    removePic($connection,$user);
     if($query -> execute()){
-        removePic($connection,$username);
         die(true);
     }
     die(false);

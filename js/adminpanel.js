@@ -39,7 +39,6 @@ async function getApplications(){
                 loading(false);
                 return;
             }
-            console.log("Response => "+res);
             const parsed = JSON.parse(res);
             parsed.forEach((obj)=>{
                 const section = document.createElement('section');
@@ -91,13 +90,23 @@ async function getApplications(){
 }
 
 async function changeStatus(user,value){
+    const confirm = window.confirm("Save changes?");
+    if(!confirm){
+        return;
+    }
     loading(true);
     $.ajax({
         method:"POST",
         url: await getConfig('domain')+"php/adminpanel.php",
         data:{username:user,status:value},
         success:function(res){
-            respond(`&#9989; ${value}!`);
+            if(res === "Updated"){
+                respond(`&#9989; ${value}!`);
+            }
+            else{
+                respond("&#10060; Something went wrong!");
+                console.warn(res);
+            }
             loading(false);
         },
         error:function(error){

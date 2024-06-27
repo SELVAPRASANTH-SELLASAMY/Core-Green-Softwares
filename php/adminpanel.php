@@ -25,8 +25,14 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
 else{
     $status = $_POST['status'];
     $username = $_POST['username'];
-    $query = $connection -> prepare("UPDATE applications SET status = ? WHERE username = ?");
-    $query -> bind_param("ss",$status,$username);
+    if($status === "rejected"){
+        $query = $connection -> prepare("DELETE FROM applications WHERE username = ?");
+        $query -> bind_param("s",$username);
+    }
+    else{
+        $query = $connection -> prepare("UPDATE applications SET status = ? WHERE username = ?");
+        $query -> bind_param("ss",$status,$username);
+    }
     if($query -> execute()){
         echo "Updated";
     }
