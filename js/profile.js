@@ -389,7 +389,7 @@ function logout(){
     window.location.reload();
 }
 async function deleteAccount(){
-    var confirm = window.confirm("Are you sure want delete account?");
+    var confirm = window.confirm("Are you sure want to delete account?");
     if(!confirm){
         return;
     }
