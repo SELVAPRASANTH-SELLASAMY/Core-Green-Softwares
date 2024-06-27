@@ -39,11 +39,11 @@ const deleteAccountFieldButtons = deleteAccountField.querySelectorAll('button');
 deleteAccountFieldButtons.forEach((deleteAccountFieldButton)=>{
     deleteAccountFieldButton.addEventListener('click',()=>{
         switch(deleteAccountFieldButton.id){
-            case 'cancel':
+            case 'cancel_delete':
                 deleteAccountField.querySelector('form').reset();
                 deleteAccountField.classList.remove('display-edit-field');
                 break;
-            case 'save':
+            case 'delete':
                 fetchData("accountDeleteVerification");
                 break;
         }
@@ -180,9 +180,12 @@ function populateData(res){
             context.drawImage(img, 0, -12.5, 300, 175);
         };
     }
+    res['dob'] ? res['age'] = (new Date().getFullYear() - res['dob'].substring(0,4))-1 + " Years" : null;
+    calcPercentOfProfileCompleted(res);
     var sections = [document.getElementById('personal_info'),document.getElementById('edit_personal_info')];
     const application_stat = res.status;
     switch(application_stat){
+        case "appointed":
         case "offered":
             sections.push(document.getElementById('bank_id_details'));
         case "shortlisted":
@@ -190,7 +193,7 @@ function populateData(res){
             sections.push(document.getElementById('academic_details'));
             sections.push(document.getElementById('experience_details'));
         case "applied":
-            sections.push(document.getElementById('application_status'));
+            application_stat !== "appointed" ? sections.push(document.getElementById('application_status')) : null;
             document.getElementById('applications').style.display = "none";
             break;
         case null:
@@ -208,6 +211,21 @@ function populateData(res){
         });
     });
     displaySections(sections);
+}
+
+function calcPercentOfProfileCompleted(res){
+    var count = 0;
+    var total = Object.values(res).length;
+    Object.values(res).forEach((value)=>{
+        if(value && value !== 'null' && value !== ''){
+            count++;
+        }
+    });
+    const percent_indicator = document.querySelector('.percent-indicator');
+    var strokeVal = (283.23 / 100) * (100 - (100 / total) * count);
+    percent_indicator.style.strokeDashoffset = strokeVal;
+    const percentage = document.querySelector('.percent');
+    percentage.innerHTML = ((100 / total) * count).toFixed(1) + " %";
 }
 async function sendToServer(SectionId){
     var confirm = window.confirm("Are you sure want to save changes?");

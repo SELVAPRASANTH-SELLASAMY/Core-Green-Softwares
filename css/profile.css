@@ -205,7 +205,7 @@ section.user-details p img{
     stroke: #006266;
     stroke-width: .35rem;
     stroke-linecap: round;
-    stroke-dasharray: 314.7;
+    stroke-dasharray: 283.23;
     stroke-dashoffset: 0;
     transform: rotate(-90deg);
     transform-origin: center;
@@ -289,7 +289,7 @@ input[type='number']::-webkit-outer-spin-button{
     -webkit-appearance: none;
     appearance: none;
 }
-input:focus,select:focus,option{
+input:focus:not(section.apply input:focus),select:focus:not(section.apply select:focus),option:not(section.apply option){
     background-color: #dedede;
 }
 section.apply form label,.edit-personal-info form label,.change-password-field form label,.delete-account-field form label{

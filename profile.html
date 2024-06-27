@@ -65,7 +65,7 @@
             </div>
             <div class="profile-completeness-percentage">
                 <svg viewbox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45">
+                    <circle class="percent-indicator" cx="50" cy="50" r="45">
                     </circle>
                     <text class="text" text-anchor="middle" dominant-baseline="middle" font-size="12.5" x="50%" y="50%">
                         <tspan x="52.5" y="40" class="percent">100%</tspan>
@@ -130,8 +130,8 @@
                 <input placeholder="Enter your password" type="password" id="password" name="password" autocomplete="off">
                 <p id="password_warn" class="warn">This field is required!</p>
                 <div class="buttons">
-                    <button id="cancel" type="button">Cancel</button>
-                    <button id="save" type="button">Save</button>
+                    <button id="cancel_delete" type="button">Cancel</button>
+                    <button id="delete" type="button">Delete</button>
                 </div>
             </form>
         </div>
@@ -215,7 +215,7 @@
                 <tr>
                     <th>Age</th>
                     <td>
-                        <p>---</p>
+                        <p id="age">---</p>
                     </td>
                 </tr>
                 <tr>
@@ -292,7 +292,7 @@
                 <tr>
                     <th>Account number</th>
                     <td>
-                        <input disabled type="text" id="account_number" name="account-number" autocomplete="off">
+                        <input disabled type="number" id="account_number" name="account-number" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -310,31 +310,31 @@
                 <tr>
                     <th>IFSC code</th>
                     <td>
-                        <input disabled type="text" id="ifsc" name="ifsc" autocomplete="off">
+                        <input disabled type="text" id="ifsc" name="ifsc" autocapitalize="characters" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <th>Aadhaar</th>
                     <td>
-                        <input disabled type="text" id="aadhaar" name="aadhaar" autocomplete="off">
+                        <input disabled type="number" id="aadhaar" name="aadhaar" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <th>PAN</th>
                     <td>
-                        <input disabled type="text" id="pan" name="pan" autocomplete="off">
+                        <input disabled type="text" id="pan" name="pan" autocapitalize="characters" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <th>Passport</th>
                     <td>
-                        <input disabled type="text" id="passport" name="passport" autocomplete="off">
+                        <input disabled type="text" id="passport" name="passport" autocapitalize="characters" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <th>Driving licence</th>
                     <td>
-                        <input disabled type="text" id="driving_licence" name="driving_licence" autocomplete="off">
+                        <input disabled type="text" id="driving_licence" name="driving_licence" autocapitalize="characters" autocomplete="off">
                     </td>
                 </tr>
             </table>
@@ -425,13 +425,13 @@
                 <tr>
                     <th>Current CTC/A</th>
                     <td>
-                        <input disabled type="text" name="current-ctc" id="current_ctc" autocomplete="off">
+                        <input disabled type="number" name="current-ctc" id="current_ctc" autocomplete="off">
                     </td>
                 </tr>
                 <tr>
                     <th>Expected CTC/A</th>
                     <td>
-                        <input disabled type="text" name="expected-ctc" id="expected_ctc" autocomplete="off">
+                        <input disabled type="number" name="expected-ctc" id="expected_ctc" autocomplete="off">
                     </td>
                 </tr>
             </table>
