@@ -411,6 +411,7 @@ async function deleteAccount(){
     if(!confirm){
         return;
     }
+    loading(true);
     const user = await getCookie('user');
     $.ajax({
         method:"POST",
@@ -418,6 +419,7 @@ async function deleteAccount(){
         data:{username:user,deleteRequest:true},
         success:function(res){
             if(res){
+                loading(false);
                 respond("&#9989; Account deleted successfully!");
                 deleteAccountField.classList.remove('display-edit-field');
                 setTimeout(()=>{logout();},[3000]);
@@ -427,6 +429,7 @@ async function deleteAccount(){
             return;
         },
         error:function(error){
+            loading(false);
             respond("&#10060; Something went wrong!");
             console.error(error);
         }
@@ -446,6 +449,7 @@ function uploadpic(){
         if(!confirm){
             return;
         }
+        loading(true);
         $.ajax({
             method:"POST",
             data:formData,
@@ -455,15 +459,18 @@ function uploadpic(){
             success:function(res){
                 if(res === "profile picture set!"){
                     respond("&#9989; Profile picture set!");
+                    fetchData();
                 }
                 else{
                     respond("&#10060; Something went wrong");
                     console.warn(res);
                 }
+                loading(false);
             },
             error:function(error){
                 respond("&#10060; Something went wrong!");
                 console.error(error);
+                loading(false);
             }
         });
     };
@@ -474,6 +481,7 @@ async function deletepic(){
     if(!confirm){
         return;
     }
+    loading(true);
     const username = await getCookie("user");
     $.ajax({
         method:"POST",
@@ -482,15 +490,18 @@ async function deletepic(){
         success:function(res){
             if(res === "pic deleted"){
                 respond("&#9989; Profile picture deleted!");
+                fetchData();
             }
             else{
                 respond("&#10060; Something went wrong!");
                 console.warn(res);
             }
+            loading(false);
         },
         error:function(error){
             respond("&#10060; Something went wrong!");
             console.error(error);
+            loading(false);
         }
     });
 }

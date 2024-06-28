@@ -316,6 +316,7 @@ form #sign-in-button,form #sign-up-button,form #forgot-password-button{
     body{
         display: block;
         overflow-y: auto;
+        min-height: 0;
     }
     .left-side,.right-side{
         width: 100%;
